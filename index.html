@@ -8,7 +8,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta property="og:type" content="website">
 <meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://jcheng.love/index.html">
+<meta property="og:url" content="https://example.com/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:locale" content="en_US">
 <meta property="article:author" content="Alex">
@@ -64,7 +64,7 @@
         <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
       </nav>
       <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://jcheng.love"></form>
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://example.com"></form>
       </div>
     </div>
   </div>
@@ -72,6 +72,448 @@
 
       <div class="outer">
         <section id="main">
+  
+    <article id="post-PA2实验报告" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2023/05/21/PA2%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/" class="article-date">
+  <time class="dt-published" datetime="2023-05-21T09:35:52.415Z" itemprop="datePublished">2023-05-21</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">pa_nju/</span><br><span class="line">|-----include/</span><br><span class="line">|         |-----config.h<span class="comment">//一些配置用的宏</span></span><br><span class="line">|         |-----trap.h<span class="comment">//trap相关定义，不可改动</span></span><br><span class="line">|-----nemu/</span><br><span class="line">|         |-----include/</span><br><span class="line">|         |          |-----cpu/</span><br><span class="line">|         |          |      |-----instr/ <span class="comment">//指令函数的头文件</span></span><br><span class="line">|         |          |      |-----instr.h <span class="comment">//instr/里所有头文件的声明</span></span><br><span class="line">|         |          |      |-----reg.h <span class="comment">//寄存器</span></span><br><span class="line">|         |          |      |-----operand.h  modrm.h</span><br><span class="line">|         |          |-----others/</span><br><span class="line">|         |-----src/</span><br><span class="line">|         |      |-----main.c, parse_args.c</span><br><span class="line">|         |      |-----cpu/</span><br><span class="line">|         |      |      |-----instr/  <span class="comment">//里面各种指令.c，比如mov.c</span></span><br><span class="line">|         |      |      |-----decode/ </span><br><span class="line">|         |      |      |        |-----opcode.c <span class="comment">//instr_func opcode_entry[]</span></span><br><span class="line">|         |      |      |        |-----operand.c, modrm.c, debug.c</span><br><span class="line">|         |      |-----monitor/</span><br><span class="line">|-----testcase/</span><br><span class="line">         |-----objdump4nemu-i386  <span class="comment">//nemu反汇编工具</span></span><br><span class="line">         |-----src/   <span class="comment">//里面都是testcase.c</span></span><br><span class="line">         |-----bin/   <span class="comment">//里面都是testcase.c对应的elf和.img镜像文件</span></span><br></pre></td></tr></table></figure>
+<h2 id="PA2-1"><a href="#PA2-1" class="headerlink" title="PA2-1"></a>PA2-1</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">pa_nju/</span><br><span class="line">|-----include/</span><br><span class="line">|         |-----config.h<span class="comment">//一些配置用的宏</span></span><br><span class="line">|         |-----trap.h<span class="comment">//trap相关定义，不可改动</span></span><br><span class="line">|-----nemu/</span><br><span class="line">|         |-----include/</span><br><span class="line">|         |          |-----cpu/</span><br><span class="line">|         |          |      |-----instr/ <span class="comment">//指令函数的头文件</span></span><br><span class="line">|         |          |      |-----instr.h <span class="comment">//instr/里所有头文件的声明</span></span><br><span class="line">|         |          |      |-----reg.h <span class="comment">//寄存器</span></span><br><span class="line">|         |          |      |-----operand.h  modrm.h</span><br><span class="line">|         |          |-----others/</span><br><span class="line">|         |-----src/</span><br><span class="line">|         |      |-----main.c, parse_args.c</span><br><span class="line">|         |      |-----cpu/</span><br><span class="line">|         |      |      |-----instr/  <span class="comment">//里面各种指令.c，比如mov.c</span></span><br><span class="line">|         |      |      |-----decode/ </span><br><span class="line">|         |      |      |        |-----opcode.c <span class="comment">//instr_func opcode_entry[]</span></span><br><span class="line">|         |      |      |        |-----operand.c, modrm.c, debug.c</span><br><span class="line">|         |      |-----monitor/</span><br><span class="line">|-----testcase/</span><br><span class="line">         |-----objdump4nemu-i386  <span class="comment">//nemu反汇编工具</span></span><br><span class="line">         |-----src/   <span class="comment">//里面都是testcase.c</span></span><br><span class="line">         |-----bin/   <span class="comment">//里面都是testcase.c对应的elf和.img镜像文件</span></span><br></pre></td></tr></table></figure>
+<h3 id="指令模拟，基本设置如下："><a href="#指令模拟，基本设置如下：" class="headerlink" title="指令模拟，基本设置如下："></a>指令模拟，基本设置如下：</h3><ul>
+<li><code>make run</code> or <code>make test_pa-2-1</code>编译项目，得到测试用例的可执行文件和二进制镜像文件。</li>
+<li><code>./nemu/nemu --autorun --testcase add</code>, NEMU执行测试用例add</li>
+<li><img src="/images/Pasted%20image%2020230419223216.png"></li>
+<li><img src="/images/Pasted%20image%2020230419223300.png"></li>
+<li><code>exec_inst()</code>返回指令长度，也在cpu.c里，在函数体中，模拟执行指令，<code>opcode_entry</code>一个函数数组，执行对应的函数（指令）<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line">nemu/include/cpu/operand.h</span><br><span class="line"></span><br><span class="line">enmu &#123;</span><br><span class="line">	OPR_IMM,</span><br><span class="line">	OPR_REG,</span><br><span class="line">	OPR_MEM,</span><br><span class="line">	OPR_CREG,</span><br><span class="line">	OPR_SREG</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> &#123;</span></span><br><span class="line">	<span class="type">int</span> type;</span><br><span class="line">	<span class="type">uint32_t</span> addr;</span><br><span class="line">	<span class="type">uint32_t</span> sreg;</span><br><span class="line">	<span class="type">uint32_t</span> val;</span><br><span class="line">	<span class="type">size_t</span> data_size;</span><br><span class="line">	MEM_ADDR mem_addr;</span><br><span class="line">&#125; OPERAND;</span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> &#123;</span></span><br><span class="line">	<span class="type">uint32_t</span> disp; <span class="comment">// hex</span></span><br><span class="line">	<span class="type">uint32_t</span> base; <span class="comment">// register</span></span><br><span class="line">	<span class="type">uint32_t</span> index; <span class="comment">// register</span></span><br><span class="line">&#125; MEM_ADDR;</span><br><span class="line"></span><br><span class="line">nemu/include/cpu/modrm.h</span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">union</span> &#123;</span></span><br><span class="line">	<span class="class"><span class="keyword">struct</span>&#123;</span></span><br><span class="line">		<span class="type">uint32_t</span> rm : <span class="number">3</span>;</span><br><span class="line">		<span class="type">uint32_t</span> reg_opcode : <span class="number">3</span>;</span><br><span class="line">		<span class="type">uint32_t</span> mod : <span class="number">2</span>;</span><br><span class="line">	&#125;;</span><br><span class="line">	<span class="type">uint8_t</span> val;</span><br><span class="line">&#125; MODRM;</span><br><span class="line"><span class="keyword">inline</span> <span class="type">uint32_t</span> <span class="title function_">sign_ext</span><span class="params">(<span class="type">uint32_t</span> x, <span class="type">size_t</span> data_size)</span>&#123;                                                             │        assert(data_size == <span class="number">16</span> || data_size == <span class="number">8</span> || data_size == <span class="number">32</span>);</span><br><span class="line">│        <span class="keyword">switch</span> (data_size)</span><br><span class="line">│        &#123;</span><br><span class="line">│        <span class="keyword">case</span> <span class="number">8</span>:</span><br><span class="line">│                <span class="keyword">return</span> (<span class="type">int32_t</span>)((<span class="type">int8_t</span>)(x &amp; <span class="number">0xff</span>));</span><br><span class="line">│        <span class="keyword">case</span> <span class="number">16</span>:</span><br><span class="line">│                <span class="keyword">return</span> (<span class="type">int32_t</span>)((<span class="type">int16_t</span>)(x &amp; <span class="number">0xffff</span>));</span><br><span class="line">│        <span class="keyword">default</span>:</span><br><span class="line">│                <span class="keyword">return</span> (<span class="type">int32_t</span>)x;</span><br><span class="line">│        &#125;</span><br><span class="line">│&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="关于指令模拟"><a href="#关于指令模拟" class="headerlink" title="关于指令模拟"></a>关于指令模拟</h3><ul>
+<li><p>指令格式<br><img src="/images/Pasted%20image%2020230419232834.png"></p>
+</li>
+<li><p>若<code>opcode</code>前面出现<code>0x66</code>，则操作数长度临时改变为16位，否则为32位</p>
+</li>
+<li><p><img src="/images/Pasted%20image%2020230419233800.png"></p>
+</li>
+<li><p>&#x2F;nemu&#x2F;src&#x2F;cpu&#x2F;inst里有opcode对应的函数，比如<code>make_instr_func(mov_i2rm_v)</code>，这里有一层宏展开，展开为：<code>mov_i2rm_v(uint32_t eip, uint8_t opcode)</code>.推荐函数命名规则：指令名_源操作数类型2目的操作数类型_长度后缀。在<code>/nemu/src/cpu/instr</code>里对应的.c文件补充实现。<br>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD<br>•inst_name就是指令的名称：mov，add，sub，…<br>•src_type和dest_type是源和目的操作数类型，与decode_operand系列宏一致：<br>•rm – 寄存器或内存地址 – 对应手册E类型<br>•r – 寄存器地址 – 对应手册G类型<br>•i – 立即数 – 对应手册I类型<br>•m – 内存地址 – 差不多对应手册M类型<br>•a – 根据操作数长度对应al, ax, eax – 手册里没有<br>•c – 根据操作数长度对应cl, cx, ecx – 手册里没有<br>•o – 偏移量 – 对应手册里的O类型<br>•suffix是操作数长度后缀，与decode_data_size系列宏一致：<br>•b, w, l, v – 8，16，32，16&#x2F;32位<br>•bv – 源操作数为8位，目的操作数为16&#x2F;32位，特殊指令用到<br>short, near – jmp指令用到，分别指代8位和32位<br>src_type和dest_type是源和目的操作数类型，与decode_operand系列宏一致：<br>rm – 寄存器或内存地址 – 对应手册E类型<br>r – 寄存器地址 – 对应手册G类型<br>i – 立即数 – 对应手册I类型<br>m – 内存地址 – 差不多对应手册M类型<br>a – 根据操作数长度对应al, ax, eax – 手册里没有<br>c – 根据操作数长度对应cl, cx, ecx – 手册里没有<br>o – 偏移量 – 对应手册里的O类型<br>suffix是操作数长度后缀，与decode_data_size系列宏一致：<br>b, w, l, v – 8，16，32，16&#x2F;32位<br>bv – 源操作数为8位，目的操作数为16&#x2F;32位，特殊指令用到<br>short, near – jmp指令用到，分别指代8位和32位</p>
+</li>
+<li><p>综上，创建一个指令需要：</p>
+<ul>
+<li>在<code>nemu/src/cpu/instr/</code>里补充函数实现</li>
+<li>创建头文件<code>nemu/include/cpu/instr/mov.h</code>，并在里面写入以下内容并保存：</li>
+</ul>
+  <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">ifndef</span> __INSTR_MOV_H__ </span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> __INSTR_MOV_H__  </span></span><br><span class="line"><span class="type">int</span> <span class="title function_">mov_i2r_b</span><span class="params">(<span class="type">uint32_t</span> eip, <span class="type">uint8_t</span> opcode)</span>;  </span><br><span class="line"><span class="meta">#<span class="keyword">endif</span></span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>编辑<code>nemu/include/cpu/instr.h</code>头文件，在里面<code>include</code>上述头文件：<code>#include &quot;cpu/instr/mov.h&quot;</code></li>
+<li>在<code>opcode_entry[]</code>数组中对应的位置填入该函数的名称</li>
+</ul>
+</li>
+</ul>
+<h3 id="关于i386手册"><a href="#关于i386手册" class="headerlink" title="关于i386手册"></a>关于i386手册</h3><ul>
+<li>opcode map: Use the high-order four bits of the opcode as an index to a row of the opcode<br>table; use the low-order four bits as an index to a column of the table.</li>
+<li><img src="/images/Pasted%20image%2020230420112753.png"></li>
+<li><img src="/images/Pasted%20image%2020230420112849.png"></li>
+<li>几种jump:<ul>
+<li>Near jump—A jump to an instruction within the current code segment (the segment currently pointed to by the CS register), sometimes referred to as an intrasegment jump.</li>
+<li>Short jump—A near jump where the jump range is limited to –128 to +127 from the current EIP value.</li>
+<li>Far jump—A jump to an instruction located in a different segment than the current code segment but at the same privilege level, sometimes referred to as an intersegment jump</li>
+</ul>
+</li>
+</ul>
+<h3 id="问答题"><a href="#问答题" class="headerlink" title="问答题"></a>问答题</h3><ol>
+<li><p>使用<code>hexdump</code>命令查看测试用例的.img文件，所显示的.img文件的内容对应模拟内存的哪一个部分？指令在机器中表示的形式是什么？<br>0x30000开始的一段大约128MB的内存。指令在机器中的形式是一串01数字</p>
+</li>
+<li><p>如果去掉<code>instr_execute_2op()</code>函数前面的<code>static</code>关键字会发生什么情况？为什么？</p>
+</li>
+<li><p>为什么<code>test-float</code>会<code>fail</code>？以后在写和浮点数相关的程序的时候要注意什么？</p>
+</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://example.com/2023/05/21/PA2%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/" data-id="clhx84eo20003njae3b3n4oq4" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-pa2-risc-v" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2023/05/21/pa2-risc-v/" class="article-date">
+  <time class="dt-published" datetime="2023-05-21T09:35:52.415Z" itemprop="datePublished">2023-05-21</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>201850005 苗金成</p>
+<h2 id="必答题"><a href="#必答题" class="headerlink" title="必答题"></a>必答题</h2><ol>
+<li>YEMU<br>状态机如下：<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">                                                     4  2  0</span><br><span class="line">            |                        |        | +----+--+--+</span><br><span class="line">mov   rt,rs | R[rt] &lt;- R[rs]         | R-type | |0000|rt|rs|</span><br><span class="line">            |                        |        | +----+--+--+</span><br><span class="line">            |                        |        | +----+--+--+</span><br><span class="line">add   rt,rs | R[rt] &lt;- R[rs] + R[rt] | R-type | |0001|rt|rs|</span><br><span class="line">            |                        |        | +----+--+--+</span><br><span class="line">            |                        |        | +----+--+--+</span><br><span class="line">load  addr  | R[0] &lt;- M[addr]        | M-type | |1110| addr|</span><br><span class="line">            |                        |        | +----+--+--+</span><br><span class="line">            |                        |        | +----+--+--+</span><br><span class="line">store addr  | M[addr] &lt;- R[0]        | M-type | |1111| addr|</span><br><span class="line">            |                        |        | +----+--+--+</span><br></pre></td></tr></table></figure>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">+-halt-+---pc---+---op---+----M[addr]----+----R[<span class="number">0</span>]----+----R[<span class="number">1</span>]----+</span><br><span class="line">|  <span class="number">0</span>   |   <span class="number">0</span>    |  <span class="number">1110</span>  |   <span class="number">00100001</span>    |     <span class="number">33</span>     |    ....    |:R[<span class="number">0</span>] &lt;- M[y]</span><br><span class="line">|  <span class="number">0</span>   |   <span class="number">1</span>    |  <span class="number">0000</span>  |   <span class="number">00100001</span>    |     <span class="number">33</span>     |    <span class="number">33</span>      |:R[<span class="number">1</span>] &lt;- R[<span class="number">0</span>]</span><br><span class="line">|  <span class="number">0</span>   |   <span class="number">2</span>    |  <span class="number">1110</span>  |   <span class="number">00010000</span>    |     <span class="number">16</span>     |    <span class="number">33</span>      |:R[<span class="number">0</span>] &lt;- M[x]</span><br><span class="line">|  <span class="number">0</span>   |   <span class="number">3</span>    |  <span class="number">0001</span>  |   <span class="number">00010000</span>    |     <span class="number">49</span>     |    <span class="number">33</span>      |:R[<span class="number">0</span>]+=R[<span class="number">1</span>]</span><br><span class="line">|  <span class="number">0</span>   |   <span class="number">4</span>    |  <span class="number">1111</span>  |   <span class="number">00110001</span>    |     <span class="number">49</span>     |    <span class="number">33</span>      |:M[z] &lt;- R[<span class="number">0</span>]</span><br><span class="line">|  <span class="number">1</span>   |   <span class="number">5</span>    |  <span class="number">0001</span>  |   <span class="number">00110001</span>    |     <span class="number">49</span>     |    <span class="number">33</span>      |:halt=<span class="number">1</span>, <span class="built_in">exit</span></span><br></pre></td></tr></table></figure></li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://example.com/2023/05/21/pa2-risc-v/" data-id="clhx84eo40004njaegleucqfz" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-第3章" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2023/05/21/%E7%AC%AC3%E7%AB%A0/" class="article-date">
+  <time class="dt-published" datetime="2023-05-21T09:35:52.415Z" itemprop="datePublished">2023-05-21</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="第三章作业"><a href="#第三章作业" class="headerlink" title="第三章作业"></a>第三章作业</h1><h2 id="6"><a href="#6" class="headerlink" title="6"></a>6</h2><ol>
+<li>x,y,z分别对应是R[ebp] + 8&#x2F;12&#x2F;16</li>
+<li>代码：<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> x = *xptr;</span><br><span class="line"><span class="type">int</span> y = *yptr;</span><br><span class="line"><span class="type">int</span> z = *zptr;</span><br><span class="line">*yptr = x;</span><br><span class="line">*zptr = y;</span><br><span class="line">*xptr = z;</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h2 id="8"><a href="#8" class="headerlink" title="8"></a>8</h2><ol>
+<li>R[edx] &#x3D; 0x0000 0070, CF &#x3D; 1;</li>
+<li>R[ecx]  &#x3D; 0x0000 0010 - 0x8000 0008 &#x3D; 0x8000 0008, OF &#x3D; 1, SF &#x3D; 1, CF &#x3D;1 </li>
+<li>R[ebx] &#x3D; 0xff00, SF &#x3D; 1</li>
+<li>不改变操作数，SF &#x3D; 1</li>
+<li>R[ecx] &#x3D; 0x11e25500, OF &#x3D; CF &#x3D; 1</li>
+<li>R[DX] &#x3D; 0x0093, R[AX] &#x3D; 0, OF &#x3D; CF &#x3D; 1</li>
+<li>R[CX] &#x3D; 0x000f</li>
+</ol>
+<h2 id="9"><a href="#9" class="headerlink" title="9"></a>9</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">汇编注释：</span><br><span class="line"><span class="number">1.</span>y -&gt; ecx</span><br><span class="line"><span class="number">2.</span>y = y &lt;&lt; <span class="number">8</span></span><br><span class="line"><span class="number">3.</span>x -&gt; eax</span><br><span class="line"><span class="number">4.</span>k -&gt; edx</span><br><span class="line"><span class="number">5.</span>x = x * k</span><br><span class="line"><span class="number">6.</span>z -&gt; edx</span><br><span class="line"><span class="number">7.</span>z &amp; <span class="number">65520</span></span><br><span class="line"><span class="number">8.</span>(z &amp; <span class="number">65520</span>) &amp; (y &lt;&lt; <span class="number">8</span>)</span><br><span class="line"><span class="number">9.</span>x * k - (z &amp; <span class="number">65520</span>) &amp; (y &lt;&lt; <span class="number">8</span>)</span><br><span class="line">因此缺失部分:</span><br><span class="line"><span class="type">int</span> v = x * k - (z &amp; <span class="number">65520</span>) &amp; (y &lt;&lt; <span class="number">8</span>);</span><br></pre></td></tr></table></figure>
+<h2 id="11"><a href="#11" class="headerlink" title="11"></a>11</h2><ol>
+<li>转移地址1000 + 2 + 804838c &#x3D; 8048396. call的目标地址是本指令地址804838e + 5 + 1e得到的</li>
+<li>8048296 + 5 + ffffff00 &#x3D; 0x804819b</li>
+</ol>
+<h2 id="14"><a href="#14" class="headerlink" title="14"></a>14</h2><ol>
+<li>注释：<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1.</span> R[bx] = x</span><br><span class="line"><span class="number">2.</span> R[si] = y</span><br><span class="line"><span class="number">3.</span> R[cx] = k</span><br><span class="line"><span class="number">4.</span> .L1:</span><br><span class="line"><span class="number">5.</span> R[dx] = y</span><br><span class="line"><span class="number">6.</span> R[ax] = y</span><br><span class="line"><span class="number">7.</span> R[dx] = R[dx] &gt;&gt; <span class="number">15</span>(取y的最高位,并扩展<span class="number">16</span>位)</span><br><span class="line"><span class="number">8.</span> R[dx-ax] / R[cx] ,R[dx] = y % k</span><br><span class="line"><span class="number">9.</span> x = x * (y % k)</span><br><span class="line"><span class="number">10.</span> --k</span><br><span class="line"><span class="number">11.</span> <span class="keyword">if</span> k == <span class="number">0</span>, ZF = <span class="number">1</span> when k = <span class="number">0</span>, or ZF = <span class="number">0</span></span><br><span class="line"><span class="number">12.</span> jump to .L2 <span class="keyword">if</span> ZF == <span class="number">0</span></span><br><span class="line"><span class="number">13.</span> cmp: y - k</span><br><span class="line"><span class="number">14.</span> <span class="keyword">if</span> y &gt; k, jump .L1</span><br><span class="line"><span class="number">15.</span> .L2</span><br><span class="line"><span class="number">16.</span> x, 进行符号扩展为<span class="number">32</span>为后送入eax</span><br></pre></td></tr></table></figure></li>
+<li>被调用者保存寄存器：eax, ecx, edx; 被调用者保存寄存器：ebx, esi .这两个保存到栈中</li>
+<li>正数时，最高位为0，符号扩展16位后，这个32位的数高17位都是0，不影响结果。负数时，这个32位数的高17位都是1，保证进行带符号相除</li>
+</ol>
+<h2 id="16"><a href="#16" class="headerlink" title="16"></a>16</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">switch</span>(x)&#123;</span><br><span class="line">	<span class="keyword">case</span> <span class="number">-2</span>:</span><br><span class="line">	<span class="keyword">case</span> <span class="number">-1</span>:</span><br><span class="line">		.L2;</span><br><span class="line">		<span class="keyword">break</span>;</span><br><span class="line">	<span class="keyword">case</span> <span class="number">0</span>:</span><br><span class="line">		.L3;</span><br><span class="line">		<span class="keyword">break</span>;</span><br><span class="line">	<span class="keyword">case</span> <span class="number">1</span>:</span><br><span class="line">		.L4;</span><br><span class="line">		<span class="keyword">break</span>;</span><br><span class="line">	<span class="keyword">case</span> <span class="number">2</span>:</span><br><span class="line">		.L5;</span><br><span class="line">		<span class="keyword">break</span>;</span><br><span class="line">	<span class="keyword">case</span> <span class="number">4</span>:</span><br><span class="line">		.L6;</span><br><span class="line">		<span class="keyword">break</span>;</span><br><span class="line">	<span class="keyword">default</span>:</span><br><span class="line">		.L7;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="17"><a href="#17" class="headerlink" title="17"></a>17</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">unsigned</span> <span class="type">int</span> <span class="title function_">test</span><span class="params">(<span class="type">char</span> a, <span class="type">unsigned</span> <span class="type">short</span> b, <span class="type">unsigned</span> <span class="type">short</span> c, <span class="type">short</span> *p)</span>&#123;</span><br><span class="line">	*p = (<span class="type">short</span> *) a;</span><br><span class="line">	<span class="keyword">return</span> b * c;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="18"><a href="#18" class="headerlink" title="18"></a>18</h2><ol>
+<li>3、10、13行执行后ebp的值分别是：0xbc00 001c, 0xbc00 001c, 0xbc00 0030</li>
+<li>3、10、13行执行后esp的值分别是：0xbc00001c, 0xbbfffff0, 0xbc00 0020\</li>
+<li>&amp;x &#x3D; 0xbc00 0018, &amp;y &#x3D; 0xbc00 0014</li>
+<li>栈帧：<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">		   +--------------+</span><br><span class="line"><span class="number">0xbc00001c</span> -  <span class="number">0xbc000030</span>  -   &lt;-- EBP</span><br><span class="line"><span class="number">0xbc000018</span> -  x = <span class="number">15</span>      -</span><br><span class="line"><span class="number">0xbc000014</span> -  y = <span class="number">20</span>      -</span><br><span class="line">...        -    ……        -</span><br><span class="line"><span class="number">0xbbfffffc</span> -  <span class="number">0xbc000014</span>  -</span><br><span class="line"><span class="number">0xbbfffff8</span> -  <span class="number">0xbc000018</span>  -</span><br><span class="line"><span class="number">0xbbfffff4</span> -  <span class="number">0x804c000</span>   -</span><br><span class="line"><span class="number">0xbbfffff0</span> -  <span class="built_in">scanf</span>()返址 -   &lt;-- ESP</span><br><span class="line">		   +--------------+</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h2 id="23"><a href="#23" class="headerlink" title="23"></a>23</h2><p>寻址时地址为63<em>i + 9</em>j + k, 因此，N &#x3D; 9， M &#x3D; 7. 再由总空间为4536个字节，也就是1134个int, 得到L &#x3D; 18</p>
+<h2 id="26"><a href="#26" class="headerlink" title="26"></a>26</h2><table>
+<thead>
+<tr>
+<th>表达式EXPR</th>
+<th>TYPE类型</th>
+<th>汇编指令序列</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>uptr-&gt;s1.y</td>
+<td>short</td>
+<td>movw 4(%eax), %ax</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>movw %ax, (%edx)</td>
+</tr>
+<tr>
+<td>&amp;uptr-&gt;s1.z</td>
+<td>short*</td>
+<td>leal 6(%eax), %eax</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>movl %eax, (%edx)</td>
+</tr>
+<tr>
+<td>uptr-&gt;s2.a</td>
+<td>short*</td>
+<td>movl %eax, (%edx)</td>
+</tr>
+<tr>
+<td>uptr-&gt;s2.a[uptr-&gt;s2.b]</td>
+<td>short</td>
+<td>movl 4(%eax), %ecx</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>movl (%eax,%ecx,2), %eax</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>movl %eax, (%edx)</td>
+</tr>
+<tr>
+<td>*uptr-&gt;s2.p</td>
+<td>char</td>
+<td>movl 8(%eax), %ecx</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>movb (%ecx), %al</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>movb %al, %edx</td>
+</tr>
+</tbody></table>
+<h2 id="27"><a href="#27" class="headerlink" title="27"></a>27</h2><ol>
+<li>结构总大小：12，偏移量分别是：0, 2,4, 8, 按4字节对齐</li>
+<li>总大小8，偏移0,4,6,7， 按4字节对齐</li>
+<li>总大小12，偏移0,2,4,8，按4字节</li>
+<li>总大小8，偏移0,2,4,6，按2字节</li>
+<li>总大小24，偏移0,4,8,12,16，按4字节</li>
+<li>总大小44，偏移0,36,40，按4字节边界对齐</li>
+</ol>
+<h2 id="30"><a href="#30" class="headerlink" title="30"></a>30</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1.</span> <span class="type">void</span> <span class="title function_">abc</span><span class="params">(<span class="type">int</span> c, <span class="type">long</span> *a, <span class="type">int</span> *b)</span>;</span><br><span class="line"><span class="number">2.</span> <span class="type">void</span> <span class="title function_">abc</span><span class="params">(<span class="type">unsigned</span> c, <span class="type">long</span> *a, <span class="type">int</span> *b)</span>;</span><br><span class="line"><span class="number">3.</span> <span class="type">void</span> <span class="title function_">abc</span><span class="params">(<span class="type">long</span> c, <span class="type">long</span> *a, <span class="type">int</span> *b)</span>;</span><br><span class="line"><span class="number">4.</span> <span class="type">void</span> <span class="title function_">abc</span><span class="params">(<span class="type">unsigned</span> <span class="type">long</span> c, <span class="type">long</span> *a, <span class="type">int</span> *b)</span>;</span><br></pre></td></tr></table></figure>
+<h2 id="32"><a href="#32" class="headerlink" title="32"></a>32</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span>&#123;</span></span><br><span class="line">	<span class="type">int</span> idx;</span><br><span class="line">	<span class="type">unsigned</span> a[<span class="number">6</span>];</span><br><span class="line">&#125;line_struct;</span><br><span class="line"></span><br><span class="line">LEN = <span class="number">196</span>/<span class="number">28</span> = <span class="number">7</span></span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://example.com/2023/05/21/%E7%AC%AC3%E7%AB%A0/" data-id="clhx84eo60005njaed9o2g6rj" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-PA1 实验报告" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2023/05/21/PA1%20%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/" class="article-date">
+  <time class="dt-published" datetime="2023-05-21T09:35:52.411Z" itemprop="datePublished">2023-05-21</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>201850005 苗金成</p>
+<h2 id="1-一些知识"><a href="#1-一些知识" class="headerlink" title="1. 一些知识"></a>1. 一些知识</h2><ol>
+<li>struct and union:<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> 是结构体，比较熟悉了，注意内存是对齐的，但是不会互相覆盖。主要介绍 <span class="title">union</span>:</span></span><br><span class="line">写一段代码验证<span class="class"><span class="keyword">union</span>的内存覆盖：</span></span><br><span class="line"><span class="class">可知<span class="title">union</span>定义的较小的变量在最大变量的低字节位置</span></span><br><span class="line"><span class="class">#<span class="title">include</span> &lt;</span>stdio.h&gt;</span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdint.h&gt;</span></span></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="class"><span class="keyword">union</span> &#123;</span></span><br><span class="line">        <span class="class"><span class="keyword">union</span> &#123;</span></span><br><span class="line">            <span class="class"><span class="keyword">union</span> &#123;</span></span><br><span class="line">                <span class="type">uint32_t</span> _32;</span><br><span class="line">                <span class="type">uint16_t</span> _16;</span><br><span class="line">                <span class="type">uint8_t</span> _8[<span class="number">2</span>];</span><br><span class="line">            &#125;;</span><br><span class="line">            <span class="type">uint32_t</span> val;</span><br><span class="line">        &#125; gpr[<span class="number">8</span>];</span><br><span class="line">        <span class="class"><span class="keyword">struct</span> &#123;</span><span class="comment">// 位域操作，先定义的在低位</span></span><br><span class="line">            <span class="type">uint32_t</span> a : <span class="number">30</span>;</span><br><span class="line">            <span class="type">uint32_t</span> b : <span class="number">1</span>;</span><br><span class="line">            <span class="type">uint32_t</span> c : <span class="number">1</span>;</span><br><span class="line">        &#125;bits[<span class="number">8</span>];</span><br><span class="line">        <span class="class"><span class="keyword">struct</span> &#123;</span> <span class="comment">// do not change the order of the registers</span></span><br><span class="line">            <span class="type">uint32_t</span> eax, ecx, edx, ebx, esp, ebp, esi, edi;</span><br><span class="line">        &#125;;</span><br><span class="line">    &#125;;</span><br><span class="line">&#125; CPU_STATE;</span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span>&#123;</span><br><span class="line">    CPU_STATE cpu1;</span><br><span class="line">    cpu1.eax = <span class="number">1</span> &lt;&lt; <span class="number">30</span> ;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%u\t%u\t%u\n&quot;</span>,cpu1.bits[<span class="number">0</span>].a, cpu1.bits[<span class="number">0</span>].b, cpu1.bits[<span class="number">0</span>].c);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%u\n%u\n%u\n&quot;</span>, cpu1.gpr[<span class="number">0</span>]._32,cpu1.gpr[<span class="number">0</span>]._16, cpu1.gpr[<span class="number">0</span>]._8[<span class="number">0</span>]);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line">output :</span><br><span class="line"><span class="number">0</span>  <span class="number">1</span>  <span class="number">0</span></span><br><span class="line"><span class="number">1073741824</span></span><br><span class="line"><span class="number">0</span></span><br><span class="line"><span class="number">0</span></span><br></pre></td></tr></table></figure></li>
+<li>找1.3的浮点数<br>为浮点数加法和乘法各找两个例子：1）对应输入是规格化或非规格化数，而输出产生了阶码上溢结果为正（负）无穷的情况；2）对应输入是规格化或非规格化数，而输出产生了阶码下溢结果为正（负）零的情况。是否都能找到？若找不到，说出理由。</li>
+</ol>
+<p>加法：1）比如两个正数，$1.1…2^{255}$,两个这样的数相加<br>        2）$0.0…1<em>2^{1} + 0.0…1</em>2^{1}$<br>乘法：1）比如两个正数，$1.1…2^{255}$,两个这样的数相乘<br>            2）两个非规格化数相乘，$0.0…1<em>2^{0}$与$0.00…1</em>2^{0}$</p>
+<h2 id="de-bug记录"><a href="#de-bug记录" class="headerlink" title="(de?)bug记录"></a>(de?)bug记录</h2><ol>
+<li>1-2里实现set_PF时：<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">void</span> <span class="title function_">set_PF</span><span class="params">(<span class="type">uint32_t</span> result)</span> &#123;</span><br><span class="line">    <span class="type">uint8_t</span> val[<span class="number">8</span>] = &#123;<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>&#125;;</span><br><span class="line">    <span class="type">int8_t</span> sum = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; <span class="number">8</span>; ++i)&#123;</span><br><span class="line">        val[i] = result &amp; (<span class="number">1</span> &lt;&lt; i);      <span class="comment">//ERROR! 这样写得到的不是0/1, 而是(0/1) * 2^i</span></span><br><span class="line">								  <span class="comment">//因此要改写成val[i] = (result &amp; (1 &lt;&lt; i)) / (1 &lt;&lt; i);</span></span><br><span class="line">        sum += val[i];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (sum % <span class="number">2</span> == <span class="number">0</span>)&#123;</span><br><span class="line">        cpu.eflags.PF = <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span>&#123;</span><br><span class="line">        cpu.eflags.PF = <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>1-2里实现adc的set_CF时：<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">uint32_t</span> <span class="title function_">alu_adc</span><span class="params">(<span class="type">uint32_t</span> src, <span class="type">uint32_t</span> dest, <span class="type">size_t</span> data_size)</span></span><br><span class="line">&#123;</span><br><span class="line"><span class="meta">#<span class="keyword">ifdef</span> NEMU_REF_ALU</span></span><br><span class="line">	<span class="keyword">return</span> __ref_alu_adc(src, dest, data_size);</span><br><span class="line"><span class="meta">#<span class="keyword">else</span></span></span><br><span class="line">    <span class="type">uint32_t</span> res = cpu.eflags.CF + src + dest;</span><br><span class="line">    set_PF(res);</span><br><span class="line">    set_ZF(res, data_size);</span><br><span class="line">	set_SF(res, data_size);</span><br><span class="line">	set_OF_add(res, src, dest, data_size);</span><br><span class="line">	<span class="comment">/*这是正确版本</span></span><br><span class="line"><span class="comment">	if (cpu.eflags.CF == 0)&#123;</span></span><br><span class="line"><span class="comment">	    set_CF_add(res, src, data_size);</span></span><br><span class="line"><span class="comment">	&#125;</span></span><br><span class="line"><span class="comment">	else&#123;</span></span><br><span class="line"><span class="comment">	    set_CF_adc(res, src, data_size);</span></span><br><span class="line"><span class="comment">	&#125;*/</span></span><br><span class="line">	set_CF_adc(res, src, data_size);</span><br><span class="line">	<span class="comment">//错误在于当CF = 0时，也会返回新的CF = 1。也就是set_CF_adc不是set_CF_add的超集</span></span><br><span class="line">    <span class="keyword">return</span> res &amp; (<span class="number">0xFFFFFFFF</span> &gt;&gt; (<span class="number">32</span> - data_size));</span><br><span class="line"><span class="meta">#<span class="keyword">endif</span></span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>1-2里实现shr时， 结果不对：<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">错误版本：</span><br><span class="line">res = dest &lt;&lt; src;</span><br><span class="line"><span class="keyword">return</span> res &amp; (<span class="number">0xFFFFFFFF</span> &gt;&gt; (<span class="number">32</span> - data_size));</span><br><span class="line"></span><br><span class="line">正确版本：</span><br><span class="line">dest =  dest &amp; (<span class="number">0xFFFFFFFF</span> &gt;&gt; (<span class="number">32</span> - data_size));</span><br><span class="line">res = dest &lt;&lt; src;</span><br><span class="line"><span class="keyword">return</span> res;</span><br></pre></td></tr></table></figure></li>
+<li>GPS位不对<br>当时没有理解规则，没有理解偶数舍入的含义，简单把&gt;&#x3D;4都进一了。实际上是<br><strong>GRS</strong> - Action<br><strong>0xx</strong> - round down &#x3D; do nothing (x means any bit value, 0 or 1)<br><strong>100</strong> - this is a <strong>tie</strong>: round up if the mantissa’s bit just before <strong>G</strong> is 1, else round down&#x3D;do nothing<br><strong>101</strong> - round up<br><strong>110</strong> - round up<br><strong>111</strong> - round up</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://example.com/2023/05/21/PA1%20%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/" data-id="clhx84enw0001njaed7kwf83t" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-PA2-1实验报告" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2023/05/21/PA2-1%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/" class="article-date">
+  <time class="dt-published" datetime="2023-05-21T09:35:52.411Z" itemprop="datePublished">2023-05-21</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="PA2-1实验报告"><a href="#PA2-1实验报告" class="headerlink" title="PA2-1实验报告"></a>PA2-1实验报告</h1><p>201850005 通信工程 苗金成</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">pa_nju/</span><br><span class="line">|-----include/</span><br><span class="line">|         |-----config.h<span class="comment">//一些配置用的宏</span></span><br><span class="line">|         |-----trap.h<span class="comment">//trap相关定义，不可改动</span></span><br><span class="line">|-----nemu/</span><br><span class="line">|         |-----include/</span><br><span class="line">|         |          |-----cpu/</span><br><span class="line">|         |          |      |-----instr/ <span class="comment">//指令函数的头文件</span></span><br><span class="line">|         |          |      |-----instr.h <span class="comment">//instr/里所有头文件的声明</span></span><br><span class="line">|         |          |      |-----reg.h <span class="comment">//寄存器</span></span><br><span class="line">|         |          |      |-----operand.h  modrm.h</span><br><span class="line">|         |          |-----others/</span><br><span class="line">|         |-----src/</span><br><span class="line">|         |      |-----main.c, parse_args.c</span><br><span class="line">|         |      |-----cpu/</span><br><span class="line">|         |      |      |-----instr/  <span class="comment">//里面各种指令.c，比如mov.c</span></span><br><span class="line">|         |      |      |-----decode/ </span><br><span class="line">|         |      |      |        |-----opcode.c <span class="comment">//instr_func opcode_entry[]</span></span><br><span class="line">|         |      |      |        |-----operand.c, modrm.c, debug.c</span><br><span class="line">|         |      |-----monitor/</span><br><span class="line">|-----testcase/</span><br><span class="line">         |-----objdump4nemu-i386  <span class="comment">//nemu反汇编工具</span></span><br><span class="line">         |-----src/   <span class="comment">//里面都是testcase.c</span></span><br><span class="line">         |-----bin/   <span class="comment">//里面都是testcase.c对应的elf和.img镜像文件</span></span><br></pre></td></tr></table></figure>
+<h2 id="指令模拟，基本设置如下："><a href="#指令模拟，基本设置如下：" class="headerlink" title="指令模拟，基本设置如下："></a>指令模拟，基本设置如下：</h2><ul>
+<li><code>make run</code> or <code>make test_pa-2-1</code>编译项目，得到测试用例的可执行文件和二进制镜像文件。</li>
+<li><code>./nemu/nemu --autorun --testcase add</code>, NEMU执行测试用例add</li>
+<li><img src="/images/Pasted%20image%2020230419223216.png"></li>
+<li><img src="/images/Pasted%20image%2020230419223300.png"></li>
+<li><code>exec_inst()</code>返回指令长度，也在cpu.c里，在函数体中，模拟执行指令，<code>opcode_entry</code>一个函数数组，执行对应的函数（指令）<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">nemu/include/cpu/operand.h</span><br><span class="line"></span><br><span class="line">enmu &#123;</span><br><span class="line">	OPR_IMM,</span><br><span class="line">	OPR_REG,</span><br><span class="line">	OPR_MEM,</span><br><span class="line">	OPR_CREG,</span><br><span class="line">	OPR_SREG</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> &#123;</span></span><br><span class="line">	<span class="type">int</span> type;</span><br><span class="line">	<span class="type">uint32_t</span> addr;</span><br><span class="line">	<span class="type">uint32_t</span> sreg;</span><br><span class="line">	<span class="type">uint32_t</span> val;</span><br><span class="line">	<span class="type">size_t</span> data_size;</span><br><span class="line">	MEM_ADDR mem_addr;</span><br><span class="line">&#125; OPERAND;</span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> &#123;</span></span><br><span class="line">	<span class="type">uint32_t</span> disp; <span class="comment">// hex</span></span><br><span class="line">	<span class="type">uint32_t</span> base; <span class="comment">// register</span></span><br><span class="line">	<span class="type">uint32_t</span> index; <span class="comment">// register</span></span><br><span class="line">&#125; MEM_ADDR;</span><br><span class="line"></span><br><span class="line">nemu/include/cpu/modrm.h</span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">union</span> &#123;</span></span><br><span class="line">	<span class="class"><span class="keyword">struct</span>&#123;</span></span><br><span class="line">		<span class="type">uint32_t</span> rm : <span class="number">3</span>;</span><br><span class="line">		<span class="type">uint32_t</span> reg_opcode : <span class="number">3</span>;</span><br><span class="line">		<span class="type">uint32_t</span> mod : <span class="number">2</span>;</span><br><span class="line">	&#125;;</span><br><span class="line">	<span class="type">uint8_t</span> val;</span><br><span class="line">&#125; MODRM;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="关于指令模拟"><a href="#关于指令模拟" class="headerlink" title="关于指令模拟"></a>关于指令模拟</h2><ul>
+<li><p>指令格式<br><img src="/images/Pasted%20image%2020230419232834.png"></p>
+</li>
+<li><p>若<code>opcode</code>前面出现<code>0x66</code>，则操作数长度临时改变为16位，否则为32位</p>
+</li>
+<li><p><img src="/images/Pasted%20image%2020230419233800.png"></p>
+</li>
+<li><p>&#x2F;nemu&#x2F;src&#x2F;cpu&#x2F;inst里有opcode对应的函数，比如<code>make_instr_func(mov_i2rm_v)</code>，这里有一层宏展开，展开为：<code>mov_i2rm_v(uint32_t eip, uint8_t opcode)</code>.推荐函数命名规则：指令名_源操作数类型2目的操作数类型_长度后缀。在<code>/nemu/src/cpu/instr</code>里对应的.c文件补充实现。<br>src_type和dest_type是源和目的操作数类型，与decode_operand系列宏一致：<br>rm – 寄存器或内存地址 – 对应手册E类型<br>r – 寄存器地址 – 对应手册G类型<br>i – 立即数 – 对应手册I类型<br>m – 内存地址 – 差不多对应手册M类型<br>a – 根据操作数长度对应al, ax, eax – 手册里没有<br>c – 根据操作数长度对应cl, cx, ecx – 手册里没有<br>o – 偏移量 – 对应手册里的O类型<br>suffix是操作数长度后缀，与decode_data_size系列宏一致：<br>b, w, l, v – 8，16，32，16&#x2F;32位<br>bv – 源操作数为8位，目的操作数为16&#x2F;32位，特殊指令用到<br>short, near – jmp指令用到，分别指代8位和32位</p>
+</li>
+<li><p>综上，创建一个指令需要：</p>
+<ul>
+<li>在<code>nemu/src/cpu/instr/</code>里补充函数实现</li>
+<li>创建头文件<code>nemu/include/cpu/instr/mov.h</code>，并在里面写入以下内容并保存：</li>
+</ul>
+  <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">ifndef</span> __INSTR_MOV_H__ </span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> __INSTR_MOV_H__  </span></span><br><span class="line"><span class="type">int</span> <span class="title function_">mov_i2r_b</span><span class="params">(<span class="type">uint32_t</span> eip, <span class="type">uint8_t</span> opcode)</span>;  </span><br><span class="line"><span class="meta">#<span class="keyword">endif</span></span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>编辑<code>nemu/include/cpu/instr.h</code>头文件，在里面<code>include</code>上述头文件：<code>#include &quot;cpu/instr/mov.h&quot;</code></li>
+<li>在<code>opcode_entry[]</code>数组中对应的位置填入该函数的名称</li>
+</ul>
+</li>
+<li><p>适用宏的指令：<code>adc</code>, <code>add</code>, <code>and</code>, <code>bt</code>, <code>cbw</code>, <code>cmov</code>, <code>cmp</code>, <code>dec</code>, <code>inc</code>, <code>jcc</code>, 大多数的<code>mov</code>, <code>not</code>, <code>or</code>, <code>pop</code>, <code>push</code>, <code>sar</code>, <code>sbb</code>, <code>setcc</code>, <code>shl</code>, <code>shr</code>, <code>sub</code>, <code>test</code>, <code>xor</code></p>
+</li>
+<li><p>不适用的指令：<code>call</code>, <code>cltd</code>, <code>cmps</code>, <code>div</code>, <code>idiv</code>, <code>mul</code>, <code>imul</code>, <code>cld</code>, <code>clc</code>, <code>sahf</code>, <code>hlt</code>, <code>int</code>, <code>jmp</code>, <code>lea</code>, <code>leave</code>, <code>rep</code>, <code>ret</code>, <code>stos</code>, <code>x87</code></p>
+</li>
+</ul>
+<h2 id="关于i386手册"><a href="#关于i386手册" class="headerlink" title="关于i386手册"></a>关于i386手册</h2><ul>
+<li>opcode map: Use the high-order four bits of the opcode as an index to a row of the opcode<br>table; use the low-order four bits as an index to a column of the table.</li>
+<li><img src="/images/Pasted%20image%2020230420112753.png"></li>
+<li><img src="/images/Pasted%20image%2020230420112849.png"></li>
+</ul>
+<h2 id="debug日志（崩溃日记）"><a href="#debug日志（崩溃日记）" class="headerlink" title="debug日志（崩溃日记）"></a>debug日志（崩溃日记）</h2><ul>
+<li>push imm8需要符号扩展！很早之前就在网站的讲义里看到了，当时没当回事，以为碰到了bug一定记得回来找，但是事实是我忘了，第一次错误出现在quick-sort的测试用例，de了半天，汇编代码也看了大半，发现是push的问题，esp指针从未增加1，好吧，突然发现自己对push的理解有问题。其实手册里没有说明有esp+1的情况，我想当然地以为是这样。这个故事告诉我们两件事：<ul>
+<li>不要想当然，要依照手册。</li>
+<li>不要太相信自己的记忆力，人果然是短时记忆的动物。还没有发现的问题，要做个备注，不要等崩了再说。</li>
+</ul>
+</li>
+<li>typo : 这个是常出现的。至少在我这里是这样。写嗨了之后就码代码越来越快（vim真好用），复制粘贴的时候，细节不常注意。比如，在头文件声明的时候，复制了几行make_instr_impl_1op(push, i, v)之类的话，这时会有编译错误，这还好。再比如，在opcode.c里，有很多相似的命令，一写就是4个，这时我复制粘贴忘了改了（我承认这很不可思议，但是确实发生了），and_r2rm_v就变成了add_r2rm_v，这时不会有编译错误，只是hit bad trap.这个也花了我好些时间发现，发现是typo的时候，我的心情……&amp;^%$#@#%)(%^&amp;)。事后反思，这个应该如何避免呢？好像没有什么办法，网上有人说IDE的自动补全，不过这个也是治标不治本，main写成mian，编译器也会报错，这种typo都很好发现。但有些隐秘的typo没有办法。还是多练吧，写代码细心些。</li>
+<li>不熟悉mod_rm和operand_read &amp; operand_write函数，是很早的bug了，发现少写了一行operand_read(), 导致i总是自动赋零再自加，导致死循环。这个没什么好说的。早期pa2-1没有驾照就上路了，这种bug的出现太正常了。</li>
+<li>淦，又是一个笔误导致的bug，or指令的那一堆r2rm和rm2r里，对着那个opcode map时，把Ev和Gv弄反了，也就是把r2rm和rm2r对应的opcode填反了。然后发现test也写反了。。。。。。</li>
+<li>在bit测试用例里，发现自己的alu_shl有bug，原因是我直接写了<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">uint32_t</span> res = dest &lt;&lt; (src - <span class="number">1</span>);</span><br><span class="line"><span class="built_in">set</span> CF...</span><br><span class="line">res = res &lt;&lt; <span class="number">1</span>;</span><br><span class="line"><span class="built_in">set</span> PF, ZF, SF...</span><br><span class="line"><span class="keyword">return</span> res &amp; (<span class="number">0xFFFFFFFF</span> &gt;&gt; (<span class="number">32</span> - data_size));</span><br></pre></td></tr></table></figure>
+当时为了方便设置CF, 这样先左移src-1位再左移一位，当src为0，当然会变成全一。<br>这个当时没有在pa1的测试里暴露出来，不知以后是否可以在pa1里加一个对shl的测试用例。</li>
+</ul>
+<h2 id="问答题"><a href="#问答题" class="headerlink" title="问答题"></a>问答题</h2><ol>
+<li>使用<code>hexdump</code>命令查看测试用例的.img文件，所显示的.img文件的内容对应模拟内存的哪一个部分？指令在机器中表示的形式是什么？<br>0x30000开始的一段大约128MB的内存。指令在机器中的形式是一串01数字</li>
+<li>如果去掉<code>instr_execute_2op()</code>函数前面的<code>static</code>关键字会发生什么情况？为什么？<br>函数名重定义.multiple definition of <code>instr_execute_2op</code> 导致链接错误，因为没有static限制作用域，变成了全局作用域。</li>
+<li>为什么<code>test-float</code>会<code>fail</code>？以后在写和浮点数相关的程序的时候要注意什么？<br>最后一个条件判断里，c &#x3D; a - b, c实际上是0.2000000477…， 不等于0.2.<br>这提示我们，涉及浮点数的比较时，可以指定精度，而不是直接比较，比如指定一个eps，当误差小于eps，认为相等。</li>
+</ol>
+<p>  最后，pa2-1可真是太漫长了。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://example.com/2023/05/21/PA2-1%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/" data-id="clhx84eo00002njaegkvd19b1" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-ICS note" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2023/05/21/ICS%20note/" class="article-date">
+  <time class="dt-published" datetime="2023-05-21T09:35:52.407Z" itemprop="datePublished">2023-05-21</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="PA-结构："><a href="#PA-结构：" class="headerlink" title="PA 结构："></a>PA 结构：</h2><p><img src="/../../images/Pasted%20image%2020230419220743.png"></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">pa_nju/</span><br><span class="line">|-----include/</span><br><span class="line">|         |-----config.h<span class="comment">//一些配置用的宏</span></span><br><span class="line">|         |-----trap.h<span class="comment">//trap相关定义，不可改动</span></span><br><span class="line">|-----nemu/</span><br><span class="line">|         |-----include/</span><br><span class="line">|         |          |-----cpu/</span><br><span class="line">|         |          |      |-----instr/ <span class="comment">//指令函数的头文件</span></span><br><span class="line">|         |          |      |-----instr.h <span class="comment">//instr/里所有头文件的声明</span></span><br><span class="line">|         |          |      |-----reg.h <span class="comment">//寄存器</span></span><br><span class="line">|         |          |      |-----operand.h  modrm.h</span><br><span class="line">|         |          |-----others/</span><br><span class="line">|         |-----src/</span><br><span class="line">|         |      |-----main.c, parse_args.c</span><br><span class="line">|         |      |-----cpu/</span><br><span class="line">|         |      |      |-----instr/  <span class="comment">//里面各种指令.c，比如mov.c</span></span><br><span class="line">|         |      |      |-----decode/ </span><br><span class="line">|         |      |      |        |-----opcode.c <span class="comment">//instr_func opcode_entry[]</span></span><br><span class="line">|         |      |      |        |-----operand.c, modrm.c, debug.c</span><br><span class="line">|         |      |-----monitor/</span><br><span class="line">|-----testcase/</span><br><span class="line">         |-----objdump4nemu-i386  <span class="comment">//nemu反汇编工具</span></span><br><span class="line">         |-----src/   <span class="comment">//里面都是testcase.c</span></span><br><span class="line">         |-----bin/   <span class="comment">//里面都是testcase.c对应的elf和.img镜像文件</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="汇编相关"><a href="#汇编相关" class="headerlink" title="汇编相关"></a>汇编相关</h2><ul>
+<li>操作数后缀为l为双字，32位，为w为单字，16位。省略默认32位。objdump and gcc use AT&amp;T assembly language. AT&amp;T’s source operand is on the left and the destination operand is on the right. The format of assembly language “ op src dst” means “dst &lt;– src op dst”. “100(%ebx, %esi, 4)” in “MOV “ instruction means M[R[ebx] + 4 * R[esi] + 100].<br>  However, <code>leal (%eax,%ebx), %eax</code> means R[eax] + R[ebx] &#x3D; R[eax]</li>
+<li>IA-32’s registers has  32 bits, if just given a b or w, it will use 8 or 16 lower bits. </li>
+<li>somes instructions :</li>
+</ul>
+<ol>
+<li>PUSH: 先执行R[sp] &lt;– R[sp] - 2 or R[esp] &lt;– R[esp] - 4. 然后将一个字或者双字送入sp or esp 指示的栈单元。pushw means push a single word into stack and pushl means push double words.</li>
+<li>POP: 先将一个字或者双字从sp or esp指示的栈单元送入指定寄存器，再执行R[sp] &lt;– R[sp] + 2 or R[esp] &lt;– R[esp] + 4</li>
+<li>LEA: 必须是存储器寻址方式，比如基址加变址寄存器乘比例系数加偏移。目的寄存器不能是段寄存器。</li>
+<li>MOV: 一定注意，这个指令的两个操作数不能同时为存储器操作数。因为同一时刻，CPU对RAM只有读和写的两种操作之一，在汇编语言的底层实现上，不能直接对RAM的两个数据操作，因此使用一个寄存器用来中转数据</li>
+<li>CMP：目的操作数减去源操作数</li>
+<li>ADD&#x2F;SUB: 两个操作数中至多有一个存储器操作数，不区分无符号数还是带符号整数</li>
+<li>INC&#x2F;DEC: 自增&#x2F;自减，注意不生成CF标志位</li>
+<li>NEG: 取负指令，也即各位取反，末尾加一，注意若字节操作数为-128或者字操作数为-32768，则操作数无变化，但是OF&#x3D;1。若是操作数为0，CF &#x3D; 0，否则其他情况CF &#x3D; 1。</li>
+<li>NOT&#x2F;OR&#x2F;AND&#x2F;XOR: 改变目的操作数，OF &#x3D; CF &#x3D; 0，ZF 和SF看情况</li>
+<li>TEST: 两个操作数相与，但是不改变操作数，设置相应标志位</li>
+</ol>
+<h2 id="IA-32架构"><a href="#IA-32架构" class="headerlink" title="IA-32架构"></a>IA-32架构</h2><ul>
+<li>How registers are organized :<br>  8 general-purpose registers: eax, ebx ecx, edx. They are used to store operands. esp, ebp, esi, edi are mostly used to store offset values or pointers, and esp is stack pointer register, ebp is base address pointer register.<br>  2 dedicated registers : eip and eflags. eip expands from 16-bits ip, which is used exactly the same as pc register.</li>
+<li>gcc规定每个函数的栈帧必须是16字节的倍数</li>
+<li>IA-32中，四个寄存器EBP, ESP,EDI,ESI的低8位不能使用</li>
+</ul>
+<h2 id="浮点数及其运算"><a href="#浮点数及其运算" class="headerlink" title="浮点数及其运算"></a>浮点数及其运算</h2><h3 id="表示"><a href="#表示" class="headerlink" title="表示"></a>表示</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">符号位   阶码    尾数</span><br><span class="line">  <span class="number">1</span>    |  <span class="number">8</span>  |   <span class="number">23</span>  |</span><br><span class="line">  <span class="number">1</span>    |  <span class="number">11</span> |   <span class="number">52</span>  |</span><br><span class="line"></span><br><span class="line">阶码全<span class="number">0</span>时为非规格化数，阶码分别定义为<span class="number">-126</span>和<span class="number">-1022</span>，默认尾数的隐藏位为<span class="number">0</span>，强制尾数f != <span class="number">0</span></span><br><span class="line">	当f = <span class="number">0</span>时，为 表示 +<span class="number">-0</span></span><br><span class="line">规格化数的阶码为规格化数范围为，<span class="number">0</span> &lt; e &lt; <span class="number">127</span>, 默认尾数的隐藏位为<span class="number">1</span></span><br><span class="line">阶码全<span class="number">1</span>（<span class="number">127</span>），且尾数为零，表示正负无穷</span><br><span class="line">全<span class="number">1</span>阶码，非<span class="number">0</span>尾数，为NaN。</span><br></pre></td></tr></table></figure>
+<h3 id="运算"><a href="#运算" class="headerlink" title="运算"></a>运算</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">对阶：小阶向大阶对齐，小阶增加成大的。尾数加减。</span><br></pre></td></tr></table></figure>
+
+<h2 id="关于i386手册"><a href="#关于i386手册" class="headerlink" title="关于i386手册"></a>关于i386手册</h2><p><img src="/../../images/Pasted%20image%2020230421134003.png"></p>
+<ul>
+<li>opcode map: Use the high-order four bits of the opcode as an index to a row of the opcode<br>table; use the low-order four bits as an index to a column of the table.</li>
+<li><img src="/images/Pasted%20image%2020230420112753.png"></li>
+<li><img src="/images/Pasted%20image%2020230420112849.png"></li>
+<li>The ModR&#x2F;M byte contains three fields of information:<ul>
+<li>The mod field, which occupies the two most significant bits of the byte, combines with the r&#x2F;m field to form 32 possible values: eight registers and 24 indexing modes</li>
+<li>The reg field, which occupies the next three bits following the mod field, specifies either a register number or three more bits of opcode information. The meaning of the reg field is determined by the first (opcode) byte of the instruction.</li>
+<li>The r&#x2F;m field, which occupies the three least significant bits of the byte, can specify a register as the location of an operand, or can form part of the addressing-mode encoding in combination with the field as described above<br>The based indexed and scaled indexed forms of 32-bit addressing require the SIB byte. The presence of the SIB byte is indicated by certain encodings of the ModR&#x2F;M byte.</li>
+</ul>
+</li>
+<li>The SIB byte then includes the following fields:<ul>
+<li>The ss field, which occupies the two most significant bits of the byte, specifies the scale factor</li>
+<li>The index field, which occupies the next three bits following the ss field and specifies the register number of the base register</li>
+<li>The base field, which occupies the three least significant bits of the byte, specifies the register number of the base register</li>
+</ul>
+</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://example.com/2023/05/21/ICS%20note/" data-id="clhx84enc0000njaegb4ka2bv" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
   
     <article id="post-hello" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
@@ -102,7 +544,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://jcheng.love/2023/05/21/hello/" data-id="clhx5umst0001rxae7h3h8xmb" data-title="hello" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="https://example.com/2023/05/21/hello/" data-id="clhx5umst0001rxae7h3h8xmb" data-title="hello" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -153,7 +595,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://jcheng.love/2023/05/21/hello-world/" data-id="clhx5umsi0000rxaedf06dd5r" data-title="Hello World" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="https://example.com/2023/05/21/hello-world/" data-id="clhx5umsi0000rxaedf06dd5r" data-title="Hello World" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -196,11 +638,23 @@
       <ul>
         
           <li>
-            <a href="/2023/05/21/hello/">hello</a>
+            <a href="/2023/05/21/PA2%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/">(no title)</a>
           </li>
         
           <li>
-            <a href="/2023/05/21/hello-world/">Hello World</a>
+            <a href="/2023/05/21/pa2-risc-v/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2023/05/21/%E7%AC%AC3%E7%AB%A0/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2023/05/21/PA1%20%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2023/05/21/PA2-1%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/">(no title)</a>
           </li>
         
       </ul>

@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="PA 结构： 123456789101112131415161718192021222324pa_nju&#x2F;|-----include&#x2F;|         |-----config.h&#x2F;&#x2F;一些配置用的宏|         |-----trap.h&#x2F;&#x2F;trap相关定义，不可改动|-----nemu&#x2F;|         |-----include&#x2F;|         |          |-----c">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="https://example.com/2023/05/21/ICS%20note/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="PA 结构： 123456789101112131415161718192021222324pa_nju&#x2F;|-----include&#x2F;|         |-----config.h&#x2F;&#x2F;一些配置用的宏|         |-----trap.h&#x2F;&#x2F;trap相关定义，不可改动|-----nemu&#x2F;|         |-----include&#x2F;|         |          |-----c">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://example.com/images/Pasted%20image%2020230419220743.png">
+<meta property="og:image" content="https://example.com/images/Pasted%20image%2020230421134003.png">
+<meta property="og:image" content="https://example.com/images/Pasted%20image%2020230420112753.png">
+<meta property="og:image" content="https://example.com/images/Pasted%20image%2020230420112849.png">
+<meta property="article:published_time" content="2023-05-21T09:35:52.407Z">
+<meta property="article:modified_time" content="2023-05-21T09:35:52.411Z">
+<meta property="article:author" content="Alex">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://example.com/images/Pasted%20image%2020230419220743.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-ICS note" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2023/05/21/ICS%20note/" class="article-date">
+  <time class="dt-published" datetime="2023-05-21T09:35:52.407Z" itemprop="datePublished">2023-05-21</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="PA-结构："><a href="#PA-结构：" class="headerlink" title="PA 结构："></a>PA 结构：</h2><p><img src="/../../images/Pasted%20image%2020230419220743.png"></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">pa_nju/</span><br><span class="line">|-----include/</span><br><span class="line">|         |-----config.h<span class="comment">//一些配置用的宏</span></span><br><span class="line">|         |-----trap.h<span class="comment">//trap相关定义，不可改动</span></span><br><span class="line">|-----nemu/</span><br><span class="line">|         |-----include/</span><br><span class="line">|         |          |-----cpu/</span><br><span class="line">|         |          |      |-----instr/ <span class="comment">//指令函数的头文件</span></span><br><span class="line">|         |          |      |-----instr.h <span class="comment">//instr/里所有头文件的声明</span></span><br><span class="line">|         |          |      |-----reg.h <span class="comment">//寄存器</span></span><br><span class="line">|         |          |      |-----operand.h  modrm.h</span><br><span class="line">|         |          |-----others/</span><br><span class="line">|         |-----src/</span><br><span class="line">|         |      |-----main.c, parse_args.c</span><br><span class="line">|         |      |-----cpu/</span><br><span class="line">|         |      |      |-----instr/  <span class="comment">//里面各种指令.c，比如mov.c</span></span><br><span class="line">|         |      |      |-----decode/ </span><br><span class="line">|         |      |      |        |-----opcode.c <span class="comment">//instr_func opcode_entry[]</span></span><br><span class="line">|         |      |      |        |-----operand.c, modrm.c, debug.c</span><br><span class="line">|         |      |-----monitor/</span><br><span class="line">|-----testcase/</span><br><span class="line">         |-----objdump4nemu-i386  <span class="comment">//nemu反汇编工具</span></span><br><span class="line">         |-----src/   <span class="comment">//里面都是testcase.c</span></span><br><span class="line">         |-----bin/   <span class="comment">//里面都是testcase.c对应的elf和.img镜像文件</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="汇编相关"><a href="#汇编相关" class="headerlink" title="汇编相关"></a>汇编相关</h2><ul>
+<li>操作数后缀为l为双字，32位，为w为单字，16位。省略默认32位。objdump and gcc use AT&amp;T assembly language. AT&amp;T’s source operand is on the left and the destination operand is on the right. The format of assembly language “ op src dst” means “dst &lt;– src op dst”. “100(%ebx, %esi, 4)” in “MOV “ instruction means M[R[ebx] + 4 * R[esi] + 100].<br>  However, <code>leal (%eax,%ebx), %eax</code> means R[eax] + R[ebx] &#x3D; R[eax]</li>
+<li>IA-32’s registers has  32 bits, if just given a b or w, it will use 8 or 16 lower bits. </li>
+<li>somes instructions :</li>
+</ul>
+<ol>
+<li>PUSH: 先执行R[sp] &lt;– R[sp] - 2 or R[esp] &lt;– R[esp] - 4. 然后将一个字或者双字送入sp or esp 指示的栈单元。pushw means push a single word into stack and pushl means push double words.</li>
+<li>POP: 先将一个字或者双字从sp or esp指示的栈单元送入指定寄存器，再执行R[sp] &lt;– R[sp] + 2 or R[esp] &lt;– R[esp] + 4</li>
+<li>LEA: 必须是存储器寻址方式，比如基址加变址寄存器乘比例系数加偏移。目的寄存器不能是段寄存器。</li>
+<li>MOV: 一定注意，这个指令的两个操作数不能同时为存储器操作数。因为同一时刻，CPU对RAM只有读和写的两种操作之一，在汇编语言的底层实现上，不能直接对RAM的两个数据操作，因此使用一个寄存器用来中转数据</li>
+<li>CMP：目的操作数减去源操作数</li>
+<li>ADD&#x2F;SUB: 两个操作数中至多有一个存储器操作数，不区分无符号数还是带符号整数</li>
+<li>INC&#x2F;DEC: 自增&#x2F;自减，注意不生成CF标志位</li>
+<li>NEG: 取负指令，也即各位取反，末尾加一，注意若字节操作数为-128或者字操作数为-32768，则操作数无变化，但是OF&#x3D;1。若是操作数为0，CF &#x3D; 0，否则其他情况CF &#x3D; 1。</li>
+<li>NOT&#x2F;OR&#x2F;AND&#x2F;XOR: 改变目的操作数，OF &#x3D; CF &#x3D; 0，ZF 和SF看情况</li>
+<li>TEST: 两个操作数相与，但是不改变操作数，设置相应标志位</li>
+</ol>
+<h2 id="IA-32架构"><a href="#IA-32架构" class="headerlink" title="IA-32架构"></a>IA-32架构</h2><ul>
+<li>How registers are organized :<br>  8 general-purpose registers: eax, ebx ecx, edx. They are used to store operands. esp, ebp, esi, edi are mostly used to store offset values or pointers, and esp is stack pointer register, ebp is base address pointer register.<br>  2 dedicated registers : eip and eflags. eip expands from 16-bits ip, which is used exactly the same as pc register.</li>
+<li>gcc规定每个函数的栈帧必须是16字节的倍数</li>
+<li>IA-32中，四个寄存器EBP, ESP,EDI,ESI的低8位不能使用</li>
+</ul>
+<h2 id="浮点数及其运算"><a href="#浮点数及其运算" class="headerlink" title="浮点数及其运算"></a>浮点数及其运算</h2><h3 id="表示"><a href="#表示" class="headerlink" title="表示"></a>表示</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">符号位   阶码    尾数</span><br><span class="line">  <span class="number">1</span>    |  <span class="number">8</span>  |   <span class="number">23</span>  |</span><br><span class="line">  <span class="number">1</span>    |  <span class="number">11</span> |   <span class="number">52</span>  |</span><br><span class="line"></span><br><span class="line">阶码全<span class="number">0</span>时为非规格化数，阶码分别定义为<span class="number">-126</span>和<span class="number">-1022</span>，默认尾数的隐藏位为<span class="number">0</span>，强制尾数f != <span class="number">0</span></span><br><span class="line">	当f = <span class="number">0</span>时，为 表示 +<span class="number">-0</span></span><br><span class="line">规格化数的阶码为规格化数范围为，<span class="number">0</span> &lt; e &lt; <span class="number">127</span>, 默认尾数的隐藏位为<span class="number">1</span></span><br><span class="line">阶码全<span class="number">1</span>（<span class="number">127</span>），且尾数为零，表示正负无穷</span><br><span class="line">全<span class="number">1</span>阶码，非<span class="number">0</span>尾数，为NaN。</span><br></pre></td></tr></table></figure>
+<h3 id="运算"><a href="#运算" class="headerlink" title="运算"></a>运算</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">对阶：小阶向大阶对齐，小阶增加成大的。尾数加减。</span><br></pre></td></tr></table></figure>
+
+<h2 id="关于i386手册"><a href="#关于i386手册" class="headerlink" title="关于i386手册"></a>关于i386手册</h2><p><img src="/../../images/Pasted%20image%2020230421134003.png"></p>
+<ul>
+<li>opcode map: Use the high-order four bits of the opcode as an index to a row of the opcode<br>table; use the low-order four bits as an index to a column of the table.</li>
+<li><img src="/images/Pasted%20image%2020230420112753.png"></li>
+<li><img src="/images/Pasted%20image%2020230420112849.png"></li>
+<li>The ModR&#x2F;M byte contains three fields of information:<ul>
+<li>The mod field, which occupies the two most significant bits of the byte, combines with the r&#x2F;m field to form 32 possible values: eight registers and 24 indexing modes</li>
+<li>The reg field, which occupies the next three bits following the mod field, specifies either a register number or three more bits of opcode information. The meaning of the reg field is determined by the first (opcode) byte of the instruction.</li>
+<li>The r&#x2F;m field, which occupies the three least significant bits of the byte, can specify a register as the location of an operand, or can form part of the addressing-mode encoding in combination with the field as described above<br>The based indexed and scaled indexed forms of 32-bit addressing require the SIB byte. The presence of the SIB byte is indicated by certain encodings of the ModR&#x2F;M byte.</li>
+</ul>
+</li>
+<li>The SIB byte then includes the following fields:<ul>
+<li>The ss field, which occupies the two most significant bits of the byte, specifies the scale factor</li>
+<li>The index field, which occupies the next three bits following the ss field and specifies the register number of the base register</li>
+<li>The base field, which occupies the three least significant bits of the byte, specifies the register number of the base register</li>
+</ul>
+</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://example.com/2023/05/21/ICS%20note/" data-id="clhx84enc0000njaegb4ka2bv" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2023/05/21/PA2-1%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2023/05/21/hello/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">hello</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/05/">May 2023</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2023/05/21/PA2%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2023/05/21/pa2-risc-v/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2023/05/21/%E7%AC%AC3%E7%AB%A0/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2023/05/21/PA1%20%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2023/05/21/PA2-1%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2023 Alex<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

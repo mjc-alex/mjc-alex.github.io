@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="第三章作业6 x,y,z分别对应是R[ebp] + 8&#x2F;12&#x2F;16 代码：123456int x &#x3D; *xptr;int y &#x3D; *yptr;int z &#x3D; *zptr;*yptr &#x3D; x;*zptr &#x3D; y;*xptr &#x3D; z;  8 R[edx] &#x3D; 0x0000 0070, CF &#x3D; 1; R[ecx]  &#x3D; 0x0000 0010 - 0x">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="https://example.com/2023/05/21/%E7%AC%AC3%E7%AB%A0/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="第三章作业6 x,y,z分别对应是R[ebp] + 8&#x2F;12&#x2F;16 代码：123456int x &#x3D; *xptr;int y &#x3D; *yptr;int z &#x3D; *zptr;*yptr &#x3D; x;*zptr &#x3D; y;*xptr &#x3D; z;  8 R[edx] &#x3D; 0x0000 0070, CF &#x3D; 1; R[ecx]  &#x3D; 0x0000 0010 - 0x">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2023-05-21T09:35:52.415Z">
+<meta property="article:modified_time" content="2023-05-21T09:35:52.415Z">
+<meta property="article:author" content="Alex">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-第3章" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2023/05/21/%E7%AC%AC3%E7%AB%A0/" class="article-date">
+  <time class="dt-published" datetime="2023-05-21T09:35:52.415Z" itemprop="datePublished">2023-05-21</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="第三章作业"><a href="#第三章作业" class="headerlink" title="第三章作业"></a>第三章作业</h1><h2 id="6"><a href="#6" class="headerlink" title="6"></a>6</h2><ol>
+<li>x,y,z分别对应是R[ebp] + 8&#x2F;12&#x2F;16</li>
+<li>代码：<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> x = *xptr;</span><br><span class="line"><span class="type">int</span> y = *yptr;</span><br><span class="line"><span class="type">int</span> z = *zptr;</span><br><span class="line">*yptr = x;</span><br><span class="line">*zptr = y;</span><br><span class="line">*xptr = z;</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h2 id="8"><a href="#8" class="headerlink" title="8"></a>8</h2><ol>
+<li>R[edx] &#x3D; 0x0000 0070, CF &#x3D; 1;</li>
+<li>R[ecx]  &#x3D; 0x0000 0010 - 0x8000 0008 &#x3D; 0x8000 0008, OF &#x3D; 1, SF &#x3D; 1, CF &#x3D;1 </li>
+<li>R[ebx] &#x3D; 0xff00, SF &#x3D; 1</li>
+<li>不改变操作数，SF &#x3D; 1</li>
+<li>R[ecx] &#x3D; 0x11e25500, OF &#x3D; CF &#x3D; 1</li>
+<li>R[DX] &#x3D; 0x0093, R[AX] &#x3D; 0, OF &#x3D; CF &#x3D; 1</li>
+<li>R[CX] &#x3D; 0x000f</li>
+</ol>
+<h2 id="9"><a href="#9" class="headerlink" title="9"></a>9</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">汇编注释：</span><br><span class="line"><span class="number">1.</span>y -&gt; ecx</span><br><span class="line"><span class="number">2.</span>y = y &lt;&lt; <span class="number">8</span></span><br><span class="line"><span class="number">3.</span>x -&gt; eax</span><br><span class="line"><span class="number">4.</span>k -&gt; edx</span><br><span class="line"><span class="number">5.</span>x = x * k</span><br><span class="line"><span class="number">6.</span>z -&gt; edx</span><br><span class="line"><span class="number">7.</span>z &amp; <span class="number">65520</span></span><br><span class="line"><span class="number">8.</span>(z &amp; <span class="number">65520</span>) &amp; (y &lt;&lt; <span class="number">8</span>)</span><br><span class="line"><span class="number">9.</span>x * k - (z &amp; <span class="number">65520</span>) &amp; (y &lt;&lt; <span class="number">8</span>)</span><br><span class="line">因此缺失部分:</span><br><span class="line"><span class="type">int</span> v = x * k - (z &amp; <span class="number">65520</span>) &amp; (y &lt;&lt; <span class="number">8</span>);</span><br></pre></td></tr></table></figure>
+<h2 id="11"><a href="#11" class="headerlink" title="11"></a>11</h2><ol>
+<li>转移地址1000 + 2 + 804838c &#x3D; 8048396. call的目标地址是本指令地址804838e + 5 + 1e得到的</li>
+<li>8048296 + 5 + ffffff00 &#x3D; 0x804819b</li>
+</ol>
+<h2 id="14"><a href="#14" class="headerlink" title="14"></a>14</h2><ol>
+<li>注释：<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1.</span> R[bx] = x</span><br><span class="line"><span class="number">2.</span> R[si] = y</span><br><span class="line"><span class="number">3.</span> R[cx] = k</span><br><span class="line"><span class="number">4.</span> .L1:</span><br><span class="line"><span class="number">5.</span> R[dx] = y</span><br><span class="line"><span class="number">6.</span> R[ax] = y</span><br><span class="line"><span class="number">7.</span> R[dx] = R[dx] &gt;&gt; <span class="number">15</span>(取y的最高位,并扩展<span class="number">16</span>位)</span><br><span class="line"><span class="number">8.</span> R[dx-ax] / R[cx] ,R[dx] = y % k</span><br><span class="line"><span class="number">9.</span> x = x * (y % k)</span><br><span class="line"><span class="number">10.</span> --k</span><br><span class="line"><span class="number">11.</span> <span class="keyword">if</span> k == <span class="number">0</span>, ZF = <span class="number">1</span> when k = <span class="number">0</span>, or ZF = <span class="number">0</span></span><br><span class="line"><span class="number">12.</span> jump to .L2 <span class="keyword">if</span> ZF == <span class="number">0</span></span><br><span class="line"><span class="number">13.</span> cmp: y - k</span><br><span class="line"><span class="number">14.</span> <span class="keyword">if</span> y &gt; k, jump .L1</span><br><span class="line"><span class="number">15.</span> .L2</span><br><span class="line"><span class="number">16.</span> x, 进行符号扩展为<span class="number">32</span>为后送入eax</span><br></pre></td></tr></table></figure></li>
+<li>被调用者保存寄存器：eax, ecx, edx; 被调用者保存寄存器：ebx, esi .这两个保存到栈中</li>
+<li>正数时，最高位为0，符号扩展16位后，这个32位的数高17位都是0，不影响结果。负数时，这个32位数的高17位都是1，保证进行带符号相除</li>
+</ol>
+<h2 id="16"><a href="#16" class="headerlink" title="16"></a>16</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">switch</span>(x)&#123;</span><br><span class="line">	<span class="keyword">case</span> <span class="number">-2</span>:</span><br><span class="line">	<span class="keyword">case</span> <span class="number">-1</span>:</span><br><span class="line">		.L2;</span><br><span class="line">		<span class="keyword">break</span>;</span><br><span class="line">	<span class="keyword">case</span> <span class="number">0</span>:</span><br><span class="line">		.L3;</span><br><span class="line">		<span class="keyword">break</span>;</span><br><span class="line">	<span class="keyword">case</span> <span class="number">1</span>:</span><br><span class="line">		.L4;</span><br><span class="line">		<span class="keyword">break</span>;</span><br><span class="line">	<span class="keyword">case</span> <span class="number">2</span>:</span><br><span class="line">		.L5;</span><br><span class="line">		<span class="keyword">break</span>;</span><br><span class="line">	<span class="keyword">case</span> <span class="number">4</span>:</span><br><span class="line">		.L6;</span><br><span class="line">		<span class="keyword">break</span>;</span><br><span class="line">	<span class="keyword">default</span>:</span><br><span class="line">		.L7;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="17"><a href="#17" class="headerlink" title="17"></a>17</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">unsigned</span> <span class="type">int</span> <span class="title function_">test</span><span class="params">(<span class="type">char</span> a, <span class="type">unsigned</span> <span class="type">short</span> b, <span class="type">unsigned</span> <span class="type">short</span> c, <span class="type">short</span> *p)</span>&#123;</span><br><span class="line">	*p = (<span class="type">short</span> *) a;</span><br><span class="line">	<span class="keyword">return</span> b * c;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="18"><a href="#18" class="headerlink" title="18"></a>18</h2><ol>
+<li>3、10、13行执行后ebp的值分别是：0xbc00 001c, 0xbc00 001c, 0xbc00 0030</li>
+<li>3、10、13行执行后esp的值分别是：0xbc00001c, 0xbbfffff0, 0xbc00 0020\</li>
+<li>&amp;x &#x3D; 0xbc00 0018, &amp;y &#x3D; 0xbc00 0014</li>
+<li>栈帧：<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">		   +--------------+</span><br><span class="line"><span class="number">0xbc00001c</span> -  <span class="number">0xbc000030</span>  -   &lt;-- EBP</span><br><span class="line"><span class="number">0xbc000018</span> -  x = <span class="number">15</span>      -</span><br><span class="line"><span class="number">0xbc000014</span> -  y = <span class="number">20</span>      -</span><br><span class="line">...        -    ……        -</span><br><span class="line"><span class="number">0xbbfffffc</span> -  <span class="number">0xbc000014</span>  -</span><br><span class="line"><span class="number">0xbbfffff8</span> -  <span class="number">0xbc000018</span>  -</span><br><span class="line"><span class="number">0xbbfffff4</span> -  <span class="number">0x804c000</span>   -</span><br><span class="line"><span class="number">0xbbfffff0</span> -  <span class="built_in">scanf</span>()返址 -   &lt;-- ESP</span><br><span class="line">		   +--------------+</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h2 id="23"><a href="#23" class="headerlink" title="23"></a>23</h2><p>寻址时地址为63<em>i + 9</em>j + k, 因此，N &#x3D; 9， M &#x3D; 7. 再由总空间为4536个字节，也就是1134个int, 得到L &#x3D; 18</p>
+<h2 id="26"><a href="#26" class="headerlink" title="26"></a>26</h2><table>
+<thead>
+<tr>
+<th>表达式EXPR</th>
+<th>TYPE类型</th>
+<th>汇编指令序列</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>uptr-&gt;s1.y</td>
+<td>short</td>
+<td>movw 4(%eax), %ax</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>movw %ax, (%edx)</td>
+</tr>
+<tr>
+<td>&amp;uptr-&gt;s1.z</td>
+<td>short*</td>
+<td>leal 6(%eax), %eax</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>movl %eax, (%edx)</td>
+</tr>
+<tr>
+<td>uptr-&gt;s2.a</td>
+<td>short*</td>
+<td>movl %eax, (%edx)</td>
+</tr>
+<tr>
+<td>uptr-&gt;s2.a[uptr-&gt;s2.b]</td>
+<td>short</td>
+<td>movl 4(%eax), %ecx</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>movl (%eax,%ecx,2), %eax</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>movl %eax, (%edx)</td>
+</tr>
+<tr>
+<td>*uptr-&gt;s2.p</td>
+<td>char</td>
+<td>movl 8(%eax), %ecx</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>movb (%ecx), %al</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>movb %al, %edx</td>
+</tr>
+</tbody></table>
+<h2 id="27"><a href="#27" class="headerlink" title="27"></a>27</h2><ol>
+<li>结构总大小：12，偏移量分别是：0, 2,4, 8, 按4字节对齐</li>
+<li>总大小8，偏移0,4,6,7， 按4字节对齐</li>
+<li>总大小12，偏移0,2,4,8，按4字节</li>
+<li>总大小8，偏移0,2,4,6，按2字节</li>
+<li>总大小24，偏移0,4,8,12,16，按4字节</li>
+<li>总大小44，偏移0,36,40，按4字节边界对齐</li>
+</ol>
+<h2 id="30"><a href="#30" class="headerlink" title="30"></a>30</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1.</span> <span class="type">void</span> <span class="title function_">abc</span><span class="params">(<span class="type">int</span> c, <span class="type">long</span> *a, <span class="type">int</span> *b)</span>;</span><br><span class="line"><span class="number">2.</span> <span class="type">void</span> <span class="title function_">abc</span><span class="params">(<span class="type">unsigned</span> c, <span class="type">long</span> *a, <span class="type">int</span> *b)</span>;</span><br><span class="line"><span class="number">3.</span> <span class="type">void</span> <span class="title function_">abc</span><span class="params">(<span class="type">long</span> c, <span class="type">long</span> *a, <span class="type">int</span> *b)</span>;</span><br><span class="line"><span class="number">4.</span> <span class="type">void</span> <span class="title function_">abc</span><span class="params">(<span class="type">unsigned</span> <span class="type">long</span> c, <span class="type">long</span> *a, <span class="type">int</span> *b)</span>;</span><br></pre></td></tr></table></figure>
+<h2 id="32"><a href="#32" class="headerlink" title="32"></a>32</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span>&#123;</span></span><br><span class="line">	<span class="type">int</span> idx;</span><br><span class="line">	<span class="type">unsigned</span> a[<span class="number">6</span>];</span><br><span class="line">&#125;line_struct;</span><br><span class="line"></span><br><span class="line">LEN = <span class="number">196</span>/<span class="number">28</span> = <span class="number">7</span></span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://example.com/2023/05/21/%E7%AC%AC3%E7%AB%A0/" data-id="clhx84eo60005njaed9o2g6rj" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2023/05/21/pa2-risc-v/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2023/05/21/PA1%20%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title"></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/05/">May 2023</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2023/05/21/PA2%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2023/05/21/pa2-risc-v/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2023/05/21/%E7%AC%AC3%E7%AB%A0/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2023/05/21/PA1%20%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2023/05/21/PA2-1%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2023 Alex<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>
