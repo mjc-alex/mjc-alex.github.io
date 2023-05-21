@@ -6,15 +6,15 @@
   
   <title>Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="201850005 苗金成 1. 一些知识 struct and union:1234567891011121314151617181920212223242526272829303132333435363738struct 是结构体，比较熟悉了，注意内存是对齐的，但是不会互相覆盖。主要介绍 union:写一段代码验证union的内存覆盖：可知union定义的较小的变量在最大变量的低字节位置#in">
+  <meta name="description" content="PA1 report1. 一些知识 struct and union:1234567891011121314151617181920212223242526272829303132333435363738struct 是结构体，比较熟悉了，注意内存是对齐的，但是不会互相覆盖。主要介绍 union:写一段代码验证union的内存覆盖：可知union定义的较小的变量在最大变量的低字节位置#includ">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Hexo">
 <meta property="og:url" content="https://mjc-alex.github.io/2023/05/21/PA1%20%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="201850005 苗金成 1. 一些知识 struct and union:1234567891011121314151617181920212223242526272829303132333435363738struct 是结构体，比较熟悉了，注意内存是对齐的，但是不会互相覆盖。主要介绍 union:写一段代码验证union的内存覆盖：可知union定义的较小的变量在最大变量的低字节位置#in">
+<meta property="og:description" content="PA1 report1. 一些知识 struct and union:1234567891011121314151617181920212223242526272829303132333435363738struct 是结构体，比较熟悉了，注意内存是对齐的，但是不会互相覆盖。主要介绍 union:写一段代码验证union的内存覆盖：可知union定义的较小的变量在最大变量的低字节位置#includ">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2023-05-21T09:35:52.411Z">
-<meta property="article:modified_time" content="2023-05-21T09:35:52.411Z">
+<meta property="article:modified_time" content="2023-05-21T14:58:31.196Z">
 <meta property="article:author" content="Alex">
 <meta name="twitter:card" content="summary">
   
@@ -87,8 +87,7 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <p>201850005 苗金成</p>
-<h2 id="1-一些知识"><a href="#1-一些知识" class="headerlink" title="1. 一些知识"></a>1. 一些知识</h2><ol>
+        <h1 id="PA1-report"><a href="#PA1-report" class="headerlink" title="PA1 report"></a>PA1 report</h1><h2 id="1-一些知识"><a href="#1-一些知识" class="headerlink" title="1. 一些知识"></a>1. 一些知识</h2><ol>
 <li>struct and union:<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> 是结构体，比较熟悉了，注意内存是对齐的，但是不会互相覆盖。主要介绍 <span class="title">union</span>:</span></span><br><span class="line">写一段代码验证<span class="class"><span class="keyword">union</span>的内存覆盖：</span></span><br><span class="line"><span class="class">可知<span class="title">union</span>定义的较小的变量在最大变量的低字节位置</span></span><br><span class="line"><span class="class">#<span class="title">include</span> &lt;</span>stdio.h&gt;</span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdint.h&gt;</span></span></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="class"><span class="keyword">union</span> &#123;</span></span><br><span class="line">        <span class="class"><span class="keyword">union</span> &#123;</span></span><br><span class="line">            <span class="class"><span class="keyword">union</span> &#123;</span></span><br><span class="line">                <span class="type">uint32_t</span> _32;</span><br><span class="line">                <span class="type">uint16_t</span> _16;</span><br><span class="line">                <span class="type">uint8_t</span> _8[<span class="number">2</span>];</span><br><span class="line">            &#125;;</span><br><span class="line">            <span class="type">uint32_t</span> val;</span><br><span class="line">        &#125; gpr[<span class="number">8</span>];</span><br><span class="line">        <span class="class"><span class="keyword">struct</span> &#123;</span><span class="comment">// 位域操作，先定义的在低位</span></span><br><span class="line">            <span class="type">uint32_t</span> a : <span class="number">30</span>;</span><br><span class="line">            <span class="type">uint32_t</span> b : <span class="number">1</span>;</span><br><span class="line">            <span class="type">uint32_t</span> c : <span class="number">1</span>;</span><br><span class="line">        &#125;bits[<span class="number">8</span>];</span><br><span class="line">        <span class="class"><span class="keyword">struct</span> &#123;</span> <span class="comment">// do not change the order of the registers</span></span><br><span class="line">            <span class="type">uint32_t</span> eax, ecx, edx, ebx, esp, ebp, esi, edi;</span><br><span class="line">        &#125;;</span><br><span class="line">    &#125;;</span><br><span class="line">&#125; CPU_STATE;</span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span>&#123;</span><br><span class="line">    CPU_STATE cpu1;</span><br><span class="line">    cpu1.eax = <span class="number">1</span> &lt;&lt; <span class="number">30</span> ;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%u\t%u\t%u\n&quot;</span>,cpu1.bits[<span class="number">0</span>].a, cpu1.bits[<span class="number">0</span>].b, cpu1.bits[<span class="number">0</span>].c);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%u\n%u\n%u\n&quot;</span>, cpu1.gpr[<span class="number">0</span>]._32,cpu1.gpr[<span class="number">0</span>]._16, cpu1.gpr[<span class="number">0</span>]._8[<span class="number">0</span>]);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line">output :</span><br><span class="line"><span class="number">0</span>  <span class="number">1</span>  <span class="number">0</span></span><br><span class="line"><span class="number">1073741824</span></span><br><span class="line"><span class="number">0</span></span><br><span class="line"><span class="number">0</span></span><br></pre></td></tr></table></figure></li>
 <li>找1.3的浮点数<br>为浮点数加法和乘法各找两个例子：1）对应输入是规格化或非规格化数，而输出产生了阶码上溢结果为正（负）无穷的情况；2）对应输入是规格化或非规格化数，而输出产生了阶码下溢结果为正（负）零的情况。是否都能找到？若找不到，说出理由。</li>
 </ol>
@@ -167,10 +166,6 @@
           </li>
         
           <li>
-            <a href="/2023/05/21/PA2%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/">(no title)</a>
-          </li>
-        
-          <li>
             <a href="/2023/05/21/pa2-risc-v/">(no title)</a>
           </li>
         
@@ -180,6 +175,10 @@
         
           <li>
             <a href="/2023/05/21/PA1%20%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2023/05/21/PA2-1%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/">(no title)</a>
           </li>
         
       </ul>

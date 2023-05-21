@@ -6,12 +6,12 @@
   
   <title>Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="PA2-1实验报告201850005 通信工程 苗金成 123456789101112131415161718192021222324pa_nju&#x2F;|-----include&#x2F;|         |-----config.h&#x2F;&#x2F;一些配置用的宏|         |-----trap.h&#x2F;&#x2F;trap相关定义，不可改动|-----nemu&#x2F;|         |-----include&#x2F;|">
+  <meta name="description" content="PA2-1实验报告123456789101112131415161718192021222324pa_nju&#x2F;|-----include&#x2F;|         |-----config.h&#x2F;&#x2F;一些配置用的宏|         |-----trap.h&#x2F;&#x2F;trap相关定义，不可改动|-----nemu&#x2F;|         |-----include&#x2F;|         |          |----">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Hexo">
 <meta property="og:url" content="https://mjc-alex.github.io/2023/05/21/PA2-1%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="PA2-1实验报告201850005 通信工程 苗金成 123456789101112131415161718192021222324pa_nju&#x2F;|-----include&#x2F;|         |-----config.h&#x2F;&#x2F;一些配置用的宏|         |-----trap.h&#x2F;&#x2F;trap相关定义，不可改动|-----nemu&#x2F;|         |-----include&#x2F;|">
+<meta property="og:description" content="PA2-1实验报告123456789101112131415161718192021222324pa_nju&#x2F;|-----include&#x2F;|         |-----config.h&#x2F;&#x2F;一些配置用的宏|         |-----trap.h&#x2F;&#x2F;trap相关定义，不可改动|-----nemu&#x2F;|         |-----include&#x2F;|         |          |----">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://mjc-alex.github.io/images/Pasted%20image%2020230419223216.png">
 <meta property="og:image" content="https://mjc-alex.github.io/images/Pasted%20image%2020230419223300.png">
@@ -20,7 +20,7 @@
 <meta property="og:image" content="https://mjc-alex.github.io/images/Pasted%20image%2020230420112753.png">
 <meta property="og:image" content="https://mjc-alex.github.io/images/Pasted%20image%2020230420112849.png">
 <meta property="article:published_time" content="2023-05-21T09:35:52.411Z">
-<meta property="article:modified_time" content="2023-05-21T09:35:52.415Z">
+<meta property="article:modified_time" content="2023-05-21T14:59:24.272Z">
 <meta property="article:author" content="Alex">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://mjc-alex.github.io/images/Pasted%20image%2020230419223216.png">
@@ -94,8 +94,7 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <h1 id="PA2-1实验报告"><a href="#PA2-1实验报告" class="headerlink" title="PA2-1实验报告"></a>PA2-1实验报告</h1><p>201850005 通信工程 苗金成</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">pa_nju/</span><br><span class="line">|-----include/</span><br><span class="line">|         |-----config.h<span class="comment">//一些配置用的宏</span></span><br><span class="line">|         |-----trap.h<span class="comment">//trap相关定义，不可改动</span></span><br><span class="line">|-----nemu/</span><br><span class="line">|         |-----include/</span><br><span class="line">|         |          |-----cpu/</span><br><span class="line">|         |          |      |-----instr/ <span class="comment">//指令函数的头文件</span></span><br><span class="line">|         |          |      |-----instr.h <span class="comment">//instr/里所有头文件的声明</span></span><br><span class="line">|         |          |      |-----reg.h <span class="comment">//寄存器</span></span><br><span class="line">|         |          |      |-----operand.h  modrm.h</span><br><span class="line">|         |          |-----others/</span><br><span class="line">|         |-----src/</span><br><span class="line">|         |      |-----main.c, parse_args.c</span><br><span class="line">|         |      |-----cpu/</span><br><span class="line">|         |      |      |-----instr/  <span class="comment">//里面各种指令.c，比如mov.c</span></span><br><span class="line">|         |      |      |-----decode/ </span><br><span class="line">|         |      |      |        |-----opcode.c <span class="comment">//instr_func opcode_entry[]</span></span><br><span class="line">|         |      |      |        |-----operand.c, modrm.c, debug.c</span><br><span class="line">|         |      |-----monitor/</span><br><span class="line">|-----testcase/</span><br><span class="line">         |-----objdump4nemu-i386  <span class="comment">//nemu反汇编工具</span></span><br><span class="line">         |-----src/   <span class="comment">//里面都是testcase.c</span></span><br><span class="line">         |-----bin/   <span class="comment">//里面都是testcase.c对应的elf和.img镜像文件</span></span><br></pre></td></tr></table></figure>
+        <h1 id="PA2-1实验报告"><a href="#PA2-1实验报告" class="headerlink" title="PA2-1实验报告"></a>PA2-1实验报告</h1><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">pa_nju/</span><br><span class="line">|-----include/</span><br><span class="line">|         |-----config.h<span class="comment">//一些配置用的宏</span></span><br><span class="line">|         |-----trap.h<span class="comment">//trap相关定义，不可改动</span></span><br><span class="line">|-----nemu/</span><br><span class="line">|         |-----include/</span><br><span class="line">|         |          |-----cpu/</span><br><span class="line">|         |          |      |-----instr/ <span class="comment">//指令函数的头文件</span></span><br><span class="line">|         |          |      |-----instr.h <span class="comment">//instr/里所有头文件的声明</span></span><br><span class="line">|         |          |      |-----reg.h <span class="comment">//寄存器</span></span><br><span class="line">|         |          |      |-----operand.h  modrm.h</span><br><span class="line">|         |          |-----others/</span><br><span class="line">|         |-----src/</span><br><span class="line">|         |      |-----main.c, parse_args.c</span><br><span class="line">|         |      |-----cpu/</span><br><span class="line">|         |      |      |-----instr/  <span class="comment">//里面各种指令.c，比如mov.c</span></span><br><span class="line">|         |      |      |-----decode/ </span><br><span class="line">|         |      |      |        |-----opcode.c <span class="comment">//instr_func opcode_entry[]</span></span><br><span class="line">|         |      |      |        |-----operand.c, modrm.c, debug.c</span><br><span class="line">|         |      |-----monitor/</span><br><span class="line">|-----testcase/</span><br><span class="line">         |-----objdump4nemu-i386  <span class="comment">//nemu反汇编工具</span></span><br><span class="line">         |-----src/   <span class="comment">//里面都是testcase.c</span></span><br><span class="line">         |-----bin/   <span class="comment">//里面都是testcase.c对应的elf和.img镜像文件</span></span><br></pre></td></tr></table></figure>
 <h2 id="指令模拟，基本设置如下："><a href="#指令模拟，基本设置如下：" class="headerlink" title="指令模拟，基本设置如下："></a>指令模拟，基本设置如下：</h2><ul>
 <li><code>make run</code> or <code>make test_pa-2-1</code>编译项目，得到测试用例的可执行文件和二进制镜像文件。</li>
 <li><code>./nemu/nemu --autorun --testcase add</code>, NEMU执行测试用例add</li>
@@ -219,10 +218,6 @@
           </li>
         
           <li>
-            <a href="/2023/05/21/PA2%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/">(no title)</a>
-          </li>
-        
-          <li>
             <a href="/2023/05/21/pa2-risc-v/">(no title)</a>
           </li>
         
@@ -232,6 +227,10 @@
         
           <li>
             <a href="/2023/05/21/PA1%20%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2023/05/21/PA2-1%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/">(no title)</a>
           </li>
         
       </ul>

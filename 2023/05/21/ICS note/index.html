@@ -6,19 +6,19 @@
   
   <title>Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="PA 结构： 123456789101112131415161718192021222324pa_nju&#x2F;|-----include&#x2F;|         |-----config.h&#x2F;&#x2F;一些配置用的宏|         |-----trap.h&#x2F;&#x2F;trap相关定义，不可改动|-----nemu&#x2F;|         |-----include&#x2F;|         |          |-----c">
+  <meta name="description" content="ICS notePA 结构： 123456789101112131415161718192021222324pa_nju&#x2F;|-----include&#x2F;|         |-----config.h&#x2F;&#x2F;一些配置用的宏|         |-----trap.h&#x2F;&#x2F;trap相关定义，不可改动|-----nemu&#x2F;|         |-----include&#x2F;|         |">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Hexo">
 <meta property="og:url" content="https://mjc-alex.github.io/2023/05/21/ICS%20note/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="PA 结构： 123456789101112131415161718192021222324pa_nju&#x2F;|-----include&#x2F;|         |-----config.h&#x2F;&#x2F;一些配置用的宏|         |-----trap.h&#x2F;&#x2F;trap相关定义，不可改动|-----nemu&#x2F;|         |-----include&#x2F;|         |          |-----c">
+<meta property="og:description" content="ICS notePA 结构： 123456789101112131415161718192021222324pa_nju&#x2F;|-----include&#x2F;|         |-----config.h&#x2F;&#x2F;一些配置用的宏|         |-----trap.h&#x2F;&#x2F;trap相关定义，不可改动|-----nemu&#x2F;|         |-----include&#x2F;|         |">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://mjc-alex.github.io/images/Pasted%20image%2020230419220743.png">
 <meta property="og:image" content="https://mjc-alex.github.io/images/Pasted%20image%2020230421134003.png">
 <meta property="og:image" content="https://mjc-alex.github.io/images/Pasted%20image%2020230420112753.png">
 <meta property="og:image" content="https://mjc-alex.github.io/images/Pasted%20image%2020230420112849.png">
 <meta property="article:published_time" content="2023-05-21T09:35:52.407Z">
-<meta property="article:modified_time" content="2023-05-21T09:35:52.411Z">
+<meta property="article:modified_time" content="2023-05-21T14:59:12.528Z">
 <meta property="article:author" content="Alex">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://mjc-alex.github.io/images/Pasted%20image%2020230419220743.png">
@@ -92,7 +92,7 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <h2 id="PA-结构："><a href="#PA-结构：" class="headerlink" title="PA 结构："></a>PA 结构：</h2><p><img src="/../../images/Pasted%20image%2020230419220743.png"></p>
+        <h1 id="ICS-note"><a href="#ICS-note" class="headerlink" title="ICS note"></a>ICS note</h1><h2 id="PA-结构："><a href="#PA-结构：" class="headerlink" title="PA 结构："></a>PA 结构：</h2><p><img src="/../../images/Pasted%20image%2020230419220743.png"></p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">pa_nju/</span><br><span class="line">|-----include/</span><br><span class="line">|         |-----config.h<span class="comment">//一些配置用的宏</span></span><br><span class="line">|         |-----trap.h<span class="comment">//trap相关定义，不可改动</span></span><br><span class="line">|-----nemu/</span><br><span class="line">|         |-----include/</span><br><span class="line">|         |          |-----cpu/</span><br><span class="line">|         |          |      |-----instr/ <span class="comment">//指令函数的头文件</span></span><br><span class="line">|         |          |      |-----instr.h <span class="comment">//instr/里所有头文件的声明</span></span><br><span class="line">|         |          |      |-----reg.h <span class="comment">//寄存器</span></span><br><span class="line">|         |          |      |-----operand.h  modrm.h</span><br><span class="line">|         |          |-----others/</span><br><span class="line">|         |-----src/</span><br><span class="line">|         |      |-----main.c, parse_args.c</span><br><span class="line">|         |      |-----cpu/</span><br><span class="line">|         |      |      |-----instr/  <span class="comment">//里面各种指令.c，比如mov.c</span></span><br><span class="line">|         |      |      |-----decode/ </span><br><span class="line">|         |      |      |        |-----opcode.c <span class="comment">//instr_func opcode_entry[]</span></span><br><span class="line">|         |      |      |        |-----operand.c, modrm.c, debug.c</span><br><span class="line">|         |      |-----monitor/</span><br><span class="line">|-----testcase/</span><br><span class="line">         |-----objdump4nemu-i386  <span class="comment">//nemu反汇编工具</span></span><br><span class="line">         |-----src/   <span class="comment">//里面都是testcase.c</span></span><br><span class="line">         |-----bin/   <span class="comment">//里面都是testcase.c对应的elf和.img镜像文件</span></span><br></pre></td></tr></table></figure>
 
 <h2 id="汇编相关"><a href="#汇编相关" class="headerlink" title="汇编相关"></a>汇编相关</h2><ul>
@@ -206,10 +206,6 @@
           </li>
         
           <li>
-            <a href="/2023/05/21/PA2%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/">(no title)</a>
-          </li>
-        
-          <li>
             <a href="/2023/05/21/pa2-risc-v/">(no title)</a>
           </li>
         
@@ -219,6 +215,10 @@
         
           <li>
             <a href="/2023/05/21/PA1%20%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2023/05/21/PA2-1%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/">(no title)</a>
           </li>
         
       </ul>
