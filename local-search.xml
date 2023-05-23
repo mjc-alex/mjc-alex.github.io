@@ -1,86 +1,64 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom">
-  <title>Keep it Simple, Stupid</title>
+<search>
   
   
-  <link href="https://mjc-alex.github.io/atom.xml" rel="self"/>
-  
-  <link href="https://mjc-alex.github.io/"/>
-  <updated>2023-05-23T05:48:09.522Z</updated>
-  <id>https://mjc-alex.github.io/</id>
-  
-  <author>
-    <name>Alex</name>
-    
-  </author>
-  
-  <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
     <title>About me</title>
-    <link href="https://mjc-alex.github.io/2023/05/23/About/about/"/>
-    <id>https://mjc-alex.github.io/2023/05/23/About/about/</id>
-    <published>2023-05-23T05:16:45.000Z</published>
-    <updated>2023-05-23T05:48:09.522Z</updated>
+    <link href="/2023/05/23/About/about/"/>
+    <url>/2023/05/23/About/about/</url>
     
     <content type="html"><![CDATA[<h2 id="first-line"><a href="#first-line" class="headerlink" title="first line"></a>first line</h2><p>I am MJC.</p>]]></content>
     
     
+    <categories>
       
+      <category>about</category>
       
-    <summary type="html">&lt;h2 id=&quot;first-line&quot;&gt;&lt;a href=&quot;#first-line&quot; class=&quot;headerlink&quot; title=&quot;first line&quot;&gt;&lt;/a&gt;first line&lt;/h2&gt;&lt;p&gt;I am MJC.&lt;/p&gt;
-</summary>
-      
-    
-    
-    
-    <category term="about" scheme="https://mjc-alex.github.io/categories/about/"/>
+    </categories>
     
     
   </entry>
   
+  
+  
   <entry>
     <title>Hexo and minos</title>
-    <link href="https://mjc-alex.github.io/2023/05/23/CS/Hexo-and-minos/"/>
-    <id>https://mjc-alex.github.io/2023/05/23/CS/Hexo-and-minos/</id>
-    <published>2023-05-22T16:04:44.000Z</published>
-    <updated>2023-05-23T08:03:05.478Z</updated>
+    <link href="/2023/05/23/CS/Hexo-and-minos/"/>
+    <url>/2023/05/23/CS/Hexo-and-minos/</url>
     
     <content type="html"><![CDATA[<p><img src="/2023/05/23/CS/Hexo-and-minos/godfather.png"><br>The image is write as <code>![](/2023/05/23/CS/Hexo-and-minos/godfather.png)</code></p><h2 id="About-Hexo"><a href="#About-Hexo" class="headerlink" title="About Hexo"></a>About Hexo</h2><p>21.5.23, 我建立了我的第一个（正式的）博客，用的是Github + Hexo. 开头很顺利，今天换主题的时候有些小bug。在此记录过程，方便以后迁移。</p><ul><li><p><code>install node.js, git, hexo</code></p>  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ npm i hexo-cli -g<br>$ hexo -v <span class="hljs-comment"># to check for successful installation</span><br>$ hexo init &lt;<span class="hljs-built_in">dir</span> name&gt;<br>$ npm install ...<br>$ hexo g <span class="hljs-comment"># generate static web page</span><br>$ hexo s <span class="hljs-comment"># start local serve to preview, ctrl + click the url to open it</span><br></code></pre></td></tr></table></figure></li><li><p><code>connect your github</code></p>  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash">git config --global user.name <span class="hljs-string">&quot;zz2summer&quot;</span> <br>git config --global user.email <span class="hljs-string">&quot;xxxxx@163.com&quot;</span><br>ssh-keygen -t rsa -C <span class="hljs-string">&quot;summer2zz@163.com&quot;</span><br></code></pre></td></tr></table></figure><p>  open github, click settings &gt; SSH and GPG keys, create a new ssh key.</p>  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">cat</span> ~/.ssh/id_rsa.pub<br></code></pre></td></tr></table></figure><p>  copy the output to the new ssh key.</p></li><li><p><code>modify blog/_config.yml</code><br>  open _config.yml, change the last line:</p>  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash">deploy:<br><span class="hljs-built_in">type</span>: git<br>repository: git@...<br>branch: main<br></code></pre></td></tr></table></figure></li></ul><h2 id="Write-new-blog"><a href="#Write-new-blog" class="headerlink" title="Write new blog"></a>Write new blog</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ npm i hexo-deployer-git <span class="hljs-comment"># install a new plugin</span><br>$ hexo new post <span class="hljs-string">&quot;title&quot;</span> <span class="hljs-comment"># create a new blog</span><br></code></pre></td></tr></table></figure><p>Then open blog&#x2F;source&#x2F;_posts, there will be a new file named <code>title.md</code></p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">hexo g -d <span class="hljs-comment"># generate the web page and push new change to github</span><br></code></pre></td></tr></table></figure><p>If needed to upload images, modify _config.yml:<br><code>post_assert_folder: true</code></p><h2 id="Delete-blog"><a href="#Delete-blog" class="headerlink" title="Delete blog"></a>Delete blog</h2><p>delete blog&#x2F;source&#x2F;_posts&#x2F;delete.md, and run <code>hexo d -g</code></p><h2 id="Customize-home-page"><a href="#Customize-home-page" class="headerlink" title="Customize home page"></a>Customize home page</h2><p>Creating an index.md file in the blog&#x2F;source folder. Then change blog&#x2F;_config.yml:</p><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs yml"><span class="hljs-attr">index_generator:</span><br>  <span class="hljs-comment">#path: &#x27;&#x27;  # DELETE</span><br>  <span class="hljs-attr">path:</span> <span class="hljs-string">&#x27;/blog&#x27;</span><br></code></pre></td></tr></table></figure>]]></content>
     
     
+    <categories>
       
+      <category>cs</category>
       
-    <summary type="html">&lt;p&gt;&lt;img src=&quot;/2023/05/23/CS/Hexo-and-minos/godfather.png&quot;&gt;&lt;br&gt;The image is write as &lt;code&gt;![](/2023/05/23/CS/Hexo-and-minos/godfather.png)&lt;/</summary>
-      
-    
-    
-    
-    <category term="cs" scheme="https://mjc-alex.github.io/categories/cs/"/>
+    </categories>
     
     
   </entry>
   
+  
+  
   <entry>
     <title>Hello World</title>
-    <link href="https://mjc-alex.github.io/2023/05/21/CS/hello-world/"/>
-    <id>https://mjc-alex.github.io/2023/05/21/CS/hello-world/</id>
-    <published>2023-05-21T08:20:11.170Z</published>
-    <updated>2023-05-23T07:49:57.930Z</updated>
+    <link href="/2023/05/21/CS/hello-world/"/>
+    <url>/2023/05/21/CS/hello-world/</url>
     
     <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo new <span class="hljs-string">&quot;My New Post&quot;</span><br></code></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo server<br></code></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo generate<br></code></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo deploy<br></code></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>]]></content>
     
     
+    <categories>
       
+      <category>cs</category>
       
-    <summary type="html">&lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.io/docs/&quot;&gt;documentation&lt;/a&gt; for</summary>
-      
-    
-    
-    
-    <category term="cs" scheme="https://mjc-alex.github.io/categories/cs/"/>
+    </categories>
     
     
   </entry>
   
-</feed>
+  
+  
+  
+</search>

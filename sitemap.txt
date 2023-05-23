@@ -1,3 +1,8 @@
-https://mjc-alex.github.io/2023/05/23/Hexo-and-minos/
-https://mjc-alex.github.io/2023/05/21/hello-world/
+https://mjc-alex.github.io/about/index.html
+https://mjc-alex.github.io/2023/05/23/CS/Hexo-and-minos/
+https://mjc-alex.github.io/index.html
+https://mjc-alex.github.io/2023/05/21/CS/hello-world/
+https://mjc-alex.github.io/2023/05/23/About/about/
 https://mjc-alex.github.io/
+https://mjc-alex.github.io/categories/about/
+https://mjc-alex.github.io/categories/cs/
