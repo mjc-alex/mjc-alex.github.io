@@ -2,9 +2,18 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://mjc-alex.github.io/2023/05/24/CS/network/</loc>
+    
+    <lastmod>2023-05-24</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://mjc-alex.github.io/about/index.html</loc>
     
-    <lastmod>2023-05-23</lastmod>
+    <lastmod>2023-05-24</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -13,7 +22,16 @@
   <url>
     <loc>https://mjc-alex.github.io/2023/05/23/CS/Hexo-and-minos/</loc>
     
-    <lastmod>2023-05-23</lastmod>
+    <lastmod>2023-05-24</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://mjc-alex.github.io/2023/05/21/CS/hello-world/</loc>
+    
+    <lastmod>2023-05-24</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -28,28 +46,10 @@
     <priority>0.6</priority>
   </url>
   
-  <url>
-    <loc>https://mjc-alex.github.io/2023/05/21/CS/hello-world/</loc>
-    
-    <lastmod>2023-05-23</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://mjc-alex.github.io/2023/05/23/About/about/</loc>
-    
-    <lastmod>2023-05-23</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
 
   <url>
     <loc>https://mjc-alex.github.io/</loc>
-    <lastmod>2023-05-23</lastmod>
+    <lastmod>2023-05-24</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -58,15 +58,8 @@
 
   
   <url>
-    <loc>https://mjc-alex.github.io/categories/about/</loc>
-    <lastmod>2023-05-23</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://mjc-alex.github.io/categories/cs/</loc>
-    <lastmod>2023-05-23</lastmod>
+    <loc>https://mjc-alex.github.io/categories/CS/</loc>
+    <lastmod>2023-05-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
