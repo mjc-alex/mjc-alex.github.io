@@ -2,6 +2,24 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://mjc-alex.github.io/2023/06/02/katex/</loc>
+    
+    <lastmod>2023-06-01</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://mjc-alex.github.io/about/index.html</loc>
+    
+    <lastmod>2023-06-01</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://mjc-alex.github.io/2023/05/23/CS/Hexo-and-fluid/</loc>
     
     <lastmod>2023-06-01</lastmod>
@@ -12,15 +30,6 @@
   
   <url>
     <loc>https://mjc-alex.github.io/2023/05/24/CS/network/</loc>
-    
-    <lastmod>2023-06-01</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://mjc-alex.github.io/about/index.html</loc>
     
     <lastmod>2023-06-01</lastmod>
     
