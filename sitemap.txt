@@ -1,4 +1,4 @@
-https://mjc-alex.github.io/2023/06/02/CS/katex/
+https://mjc-alex.github.io/2023/06/02/katex/
 https://mjc-alex.github.io/about/index.html
 https://mjc-alex.github.io/2023/05/23/CS/Hexo-and-fluid/
 https://mjc-alex.github.io/2023/05/24/CS/network/
