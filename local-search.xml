@@ -4,6 +4,25 @@
   
   
   <entry>
+    <title>Local Network Share</title>
+    <link href="/2023/06/12/Local-Network-Share/"/>
+    <url>/2023/06/12/Local-Network-Share/</url>
+    
+    <content type="html"><![CDATA[<p>An introduction on how to share files between windows, linux, and phones.<br>在要分享的文件右键设置网络分享，第一次会提示安装smb, 安装完成后选择分享设置，比如是否允许游客访问（但是我实测必须不允许，然后按下面的指令设置账户密码）。可能是哪里的设置我没有开启，懒得管了。<br>Ubuntu 22.04:</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ sudo smbpasswd -a [Ubuntu user name]<br></code></pre></td></tr></table></figure><p>And input the user name and passwd in your phone can get access to computer. You need to make sure PC and phone under the same network.<br>华为手机是文件管理-&gt;网络邻居。<br>手机访问windows的电脑也类似，文件右键设置&quot;Local network share&quot;, 设置必要的选项，windows的访问权限控制是在控制面板-&gt;网络里设置。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>CS</category>
+      
+    </categories>
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>CET6</title>
     <link href="/2023/06/10/CET6/"/>
     <url>/2023/06/10/CET6/</url>

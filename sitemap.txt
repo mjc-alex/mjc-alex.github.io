@@ -1,3 +1,4 @@
+https://mjc-alex.github.io/2023/06/12/Local-Network-Share/
 https://mjc-alex.github.io/2023/06/10/CET6/
 https://mjc-alex.github.io/about/index.html
 https://mjc-alex.github.io/2023/06/05/PA1/
@@ -8,7 +9,7 @@ https://mjc-alex.github.io/2023/05/21/blog/hello-world/
 https://mjc-alex.github.io/2023/05/24/CS/network/
 https://mjc-alex.github.io/index.html
 https://mjc-alex.github.io/
-https://mjc-alex.github.io/categories/others/
 https://mjc-alex.github.io/categories/CS/
 https://mjc-alex.github.io/categories/blog/
 https://mjc-alex.github.io/categories/CS/pa/
+https://mjc-alex.github.io/categories/others/
