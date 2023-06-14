@@ -6,7 +6,6 @@ https://mjc-alex.github.io/2023/06/05/PA-2-1/
 https://mjc-alex.github.io/2023/05/23/blog/Hexo-and-fluid/
 https://mjc-alex.github.io/2023/06/05/blog/katex/
 https://mjc-alex.github.io/2023/05/21/blog/hello-world/
-https://mjc-alex.github.io/2023/05/24/CS/network/
 https://mjc-alex.github.io/index.html
 https://mjc-alex.github.io/
 https://mjc-alex.github.io/categories/others/
